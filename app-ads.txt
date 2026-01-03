@@ -1,3 +1,13 @@
+t-shirt-c2d99.firebaseapp.com/app-ads.txt
+
+
+https://github.com/TRIEUCONGDOAN/videoplayer/app-ads.txt
+
+
+
+https://github.com/TRIEUCONGDOAN/trieucongdoan.github.io/app-ads.txt
+
+
 applovin.com, e2d20dd84ae3be217e48c8a9d3ab998d, DIRECT
 adyoulike.com, 2d578cf695c89ec2ba707280319d2020, RESELLER
 algorix.co, 60532, RESELLER, 5b394c12fea27a1d
