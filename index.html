@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260723-05-e9a76f4"}');</script><script src="/_sdk/e358eac22bd01364.telemetry_sdk.js" integrity="sha512-KPxp3rw4K8Nu9ceWJc3gyM7srgaZxiFWOVbyu260EYzzAqdz10mfo5xyXrCx+wEKtGo77JbtmwXvFLbwrGzwvw=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AndroidAppp — Android App Development Studio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-07xvo-0D32M8GpjocYlpj.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+    
+    
+  <style>
+    :root {
+      --coral: #ff5b60;
+      --coral-dark: #e94a50;
+      --ink: #161618;
+      --muted: #626262;
+      --line: #ebebf3;
+      --mist: #f0fdff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      width: 100%;
+      font-family: "DM Sans", sans-serif;
+      color: var(--muted);
+      background: #fff;
+    }
+
+    .app-shell { width: 100%; overflow-x: hidden; }
+    .site-width { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .nav-link { transition: color .2s ease; }
+    .nav-link:hover, .nav-link:focus-visible { color: var(--coral); }
+
+    .coral-button {
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .coral-button:hover {
+      transform: translateY(-2px);
+      background: var(--coral-dark);
+      box-shadow: 0 10px 22px rgba(255, 91, 96, .22);
+    }
+
+    .outline-button {
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .outline-button:hover {
+      transform: translateY(-2px);
+      background: var(--coral);
+      color: #fff;
+    }
+
+    .service-card, .project-card {
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .service-card:hover, .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--coral);
+      box-shadow: 0 18px 34px rgba(18, 18, 24, .08);
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 58px;
+      height: 3px;
+      margin: 13px auto 0;
+      border-radius: 999px;
+      background: var(--coral);
+    }
+
+    .mobile-nav { display: none; }
+    .mobile-nav.is-open { display: block; }
+
+    .success-box { display: none; }
+    .success-box.is-visible { display: flex; }
+
+    :focus-visible {
+      outline: 3px solid rgba(255, 91, 96, .42);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav, .header-cta { display: none; }
+      .mobile-toggle { display: inline-flex; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions a { text-align: center; }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-toggle { display: none; }
+    }
+      
+      
+      
+      
+      
+  
+      
+      
+  </style>
+  <script src="/_sdk/935a53bc2e11fb8d.data_sdk.js" type="text/javascript" integrity="sha512-qr2oyPnEys1WebcOABaRh6hG77r5PWpqeWW6JTKbRJqly/INsfBi31CVNlTmHqjgeLpkVmmHZJUdxSx/32tOFQ=="></script>
+  <script src="/_sdk/6030e540d4419216.resizing_sdk.js" type="text/javascript" integrity="sha512-b5KWzyoXsbWP4smq4sftIi6Kts4YVBpBsz0BwCViwbBJkK64a3/Z6ZMdWA+qnplNcXw4mhZeqvQi3mOosiRJdA=="></script>
+    
+    
+    
+    
+ </head>
+    
+ <body data-template-id="__page-root" style="background: rgb(255, 255, 255);">
+<div class="app-shell"><header data-template-id="site-header" class="canva-header sticky top-0 z-50 border-b border-[#ebebf3] bg-white/95 backdrop-blur" style="background: #ffffff;">
+<div class="site-width flex min-h-[72px] items-center justify-between gap-5">
+<h1 data-template-id="brand-name" class="canva-text text-[26px] font-bold tracking-tight" style="color: #161618; font-weight: bold; font-style: normal; font-size: 30px;">AndroidAppp</h1>
+<nav class="desktop-nav" aria-label="Main Navigation">
+<ul class="flex items-center gap-7">
+<li><a data-template-id="nav-services" class="canva-link nav-link font-medium" href="#services" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">Services</a></li>
+<li><a data-template-id="nav-portfolio" class="canva-link nav-link font-medium" href="#portfolio" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">Portfolio</a></li>
+<li><a data-template-id="nav-about" class="canva-link nav-link font-medium" href="#about" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">About</a></li>
+<li><a data-template-id="nav-contact" class="canva-link nav-link font-medium" href="#contact" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">Contact</a></li>
+</ul>
+</nav><a data-template-id="header-cta" href="#contact" class="header-cta canva-button coral-button rounded-full px-5 py-2.5 text-sm font-medium" style="background: #ff5b60; color: #ffffff; font-weight: 600; font-style: normal; font-size: 15px;">Get a Quote</a> <button id="mobile-menu-button" class="mobile-toggle items-center justify-center rounded-lg p-2 text-[#161618]" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false"> <i data-lucide="menu" aria-hidden="true"></i> </button></div>
+<nav id="mobile-menu" class="mobile-nav border-t border-[#ebebf3] bg-white px-5 py-4" aria-label="Mobile Navigation">
+<ul class="site-width flex flex-col gap-4 px-0">
+<li><a data-template-id="mobile-nav-services" class="canva-link nav-link font-medium" href="#services" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">Services</a></li>
+<li><a data-template-id="mobile-nav-portfolio" class="canva-link nav-link font-medium" href="#portfolio" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">Portfolio</a></li>
+<li><a data-template-id="mobile-nav-about" class="canva-link nav-link font-medium" href="#about" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">About</a></li>
+<li><a data-template-id="mobile-nav-contact" class="canva-link nav-link font-medium" href="#contact" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">Contact</a></li>
+</ul>
+</nav></header><main>
+<section id="home" class="relative overflow-hidden bg-[#f0fdff] py-20 sm:py-28">
+<div class="absolute -right-20 -top-28 h-80 w-80 rounded-full bg-[#ff5b60]/10 blur-3xl"></div>
+<div class="site-width relative text-center">
+<p data-template-id="hero-eyebrow" class="canva-text mb-4 text-sm font-bold uppercase tracking-[.18em]" style="color: #ff5b60; font-weight: bold; font-style: normal; font-size: 15px;">Android App Development</p>
+<h2 data-template-id="hero-title" class="canva-text mx-auto max-w-4xl text-4xl font-bold leading-tight sm:text-5xl" style="color: #161618; font-weight: bold; font-style: normal; font-size: 23px;">Turn Your Ideas Into Standout Mobile Apps</h2>
+<p data-template-id="hero-description" class="canva-text mx-auto mt-6 max-w-2xl text-lg leading-8" style="color: #626262; font-weight: 400; font-style: normal; font-size: 18px; line-height: 1.6;">We build Android apps with seamless user experiences, cutting-edge interfaces, and highly scalable codebases.</p>
+<div class="hero-actions mt-9 flex justify-center gap-4"><a data-template-id="hero-primary-button" class="canva-button coral-button rounded-md px-7 py-3.5 font-semibold" href="#contact" style="background: #ff5b60; color: #ffffff; font-weight: 600; font-style: normal; font-size: 15px;">Start Project</a> <a data-template-id="hero-secondary-button" class="canva-button outline-button rounded-md border-2 px-7 py-3 font-semibold" href="#portfolio" style="color: #ff5b60; font-weight: 600; font-style: normal; font-size: 15px;">View Projects</a></div>
+</div>
+</section>
+<section id="services" class="site-width py-20">
+<h2 data-template-id="services-title" class="canva-text section-title text-center text-3xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 23px;">Our Services</h2>
+<p data-template-id="services-intro" class="canva-text mx-auto mt-5 max-w-2xl text-center leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">From the initial concept to a launch-ready product on Google Play, every step is optimized for users and business success.</p>
+<div class="mt-12 grid gap-6 md:grid-cols-3">
+<article data-template-id="service-card-1" class="canva-card service-card rounded-xl border p-7" style="background: #ffffff;">
+<div class="mb-5 inline-flex rounded-xl bg-[#fff0f1] p-3 text-[#ff5b60]"><i data-lucide="smartphone" aria-hidden="true"></i></div>
+<h3 data-template-id="service-title-1" class="canva-text text-xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 18px;">Android Development</h3>
+<p data-template-id="service-description-1" class="canva-text mt-3 leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Build high-performance, secure, and stable Android applications for projects of any scale.</p>
+</article>
+<article data-template-id="service-card-2" class="canva-card service-card rounded-xl border p-7" style="background: #ffffff;">
+<div class="mb-5 inline-flex rounded-xl bg-[#fff0f1] p-3 text-[#ff5b60]"><i data-lucide="pen-tool" aria-hidden="true"></i></div>
+<h3 data-template-id="service-title-2" class="canva-text text-xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 18px;">UI/UX Design</h3>
+<p data-template-id="service-description-2" class="canva-text mt-3 leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Design intuitive user journeys, modern interfaces, and easy-to-use experiences on every screen.</p>
+</article>
+<article data-template-id="service-card-3" class="canva-card service-card rounded-xl border p-7" style="background: #ffffff;">
+<div class="mb-5 inline-flex rounded-xl bg-[#fff0f1] p-3 text-[#ff5b60]"><i data-lucide="rocket" aria-hidden="true"></i></div>
+<h3 data-template-id="service-title-3" class="canva-text text-xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 18px;">Deployment &amp; Maintenance</h3>
+<p data-template-id="service-description-3" class="canva-text mt-3 leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Comprehensive testing, publishing to Google Play, and continuous post-launch improvements.</p>
+</article>
+</div>
+</section>
+<section id="portfolio" data-template-id="portfolio-section" class="canva-section bg-[#fafbfc] py-20" style="background: #fafbfc;">
+<div class="site-width">
+<h2 data-template-id="portfolio-title" class="canva-text section-title text-center text-3xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 23px;">Featured Projects</h2>
+<p data-template-id="portfolio-intro" class="canva-text mx-auto mt-5 max-w-2xl text-center leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">A showcase of key application development paths that AndroidAppp can bring to life for your business.</p>
+<div class="mt-12 grid gap-7 md:grid-cols-3">
+<article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-1" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/30930310/pexels-photo-30930310.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="High-quality, front-facing smartphone mockup with blank screen on a white background for design presentations." />
+<div class="p-6">
+<h3 data-template-id="project-title-1" class="canva-text text-xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 18px;">Smart Booking App</h3>
+<p data-template-id="project-description-1" class="canva-text mt-3 leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Clean scheduling experience with an intuitive workflow, ideal for customer service and bookings.</p>
+<a data-template-id="project-link-1" href="#contact" class="canva-link mt-5 inline-flex items-center gap-2 font-semibold" style="color: #ff5b60; font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</a></div>
+</article>
+<article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-2" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/33607948/pexels-photo-33607948.png?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Colorful code displayed on a smartphone screen with a warm glow." />
+<div class="p-6">
+<h3 data-template-id="project-title-2" class="canva-text text-xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 18px;">Enterprise Operations Platform</h3>
+<p data-template-id="project-description-2" class="canva-text mt-3 leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Management solution designed to synchronize workflows, track data, and accelerate operations.</p>
+<a data-template-id="project-link-2" href="#contact" class="canva-link mt-5 inline-flex items-center gap-2 font-semibold" style="color: #ff5b60; font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</a></div>
+</article>
+<article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-3" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/36136699/pexels-photo-36136699.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A smartphone displaying an app screen lies on a dark surface, highlighting technology." />
+<div class="p-6">
+<h3 data-template-id="project-title-3" class="canva-text text-xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 18px;">Customer Engagement App</h3>
+<p data-template-id="project-description-3" class="canva-text mt-3 leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Brand application focusing on customer loyalty, personalized content, and daily engagement.</p>
+<a data-template-id="project-link-3" href="#contact" class="canva-link mt-5 inline-flex items-center gap-2 font-semibold" style="color: #ff5b60; font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</a></div>
+</article>
+</div>
+</div>
+</section>
+<section id="about" class="site-width py-20">
+<div data-template-id="about-panel" class="canva-panel grid overflow-hidden rounded-2xl md:grid-cols-[1.1fr_.9fr]" style="background: #161618;">
+<div class="p-8 sm:p-12">
+<p data-template-id="about-eyebrow" class="canva-text text-sm font-bold uppercase tracking-[.18em]" style="color: #ff5b60; font-weight: bold; font-style: normal; font-size: 15px;">About AndroidAppp</p>
+<h2 data-template-id="about-title" class="canva-text mt-3 text-3xl font-bold leading-tight" style="color: #ffffff; font-weight: bold; font-style: normal; font-size: 23px;">A Technology Partner Standing by Your Product</h2>
+<p data-template-id="about-description" class="canva-text mt-5 max-w-xl leading-7" style="color: #d1d1d6; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">We take pride in being a pioneer in developing high-quality Android applications. Our team of experienced experts combines sharp product thinking, user-centric design language, and agile development processes to transform your breakthrough ideas into perfect, smooth, and fully optimized mobile experiences.</p>
+<a data-template-id="about-button" class="canva-button coral-button mt-7 inline-flex rounded-md px-6 py-3 font-semibold" href="#contact" style="background: #ff5b60; color: #ffffff; font-weight: 600; font-style: normal; font-size: 15px;">Connect with Our Team</a></div>
+<div class="flex min-h-64 items-center justify-center bg-[#ff5b60] p-10 text-white">
+<div class="max-w-xs text-center"><i data-lucide="code-2" class="mx-auto h-12 w-12" aria-hidden="true"></i>
+<p data-template-id="about-highlight" class="canva-text mt-5 text-xl font-semibold leading-8" style="color: #ffffff; font-weight: 600; font-style: normal; font-size: 15px; line-height: 1.5;">From strategy to source code — a seamless process for your Android app.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="bg-[#f0fdff] py-20">
+<div class="site-width">
+<h2 data-template-id="contact-title" class="canva-text section-title text-center text-3xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 23px;">Start a Conversation</h2>
+<p data-template-id="contact-intro" class="canva-text mx-auto mt-5 max-w-2xl text-center leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Send us your request so AndroidAppp can understand your goals and propose the right development path.</p>
+<div class="mx-auto mt-12 max-w-2xl rounded-xl border bg-white p-6 shadow-sm sm:p-10">
+<div id="success-message" class="success-box mb-6 items-start justify-between gap-4 rounded-lg border border-[#b8e6cb] bg-[#effcf4] p-4 text-[#166534]" role="status" aria-live="polite">
+<div class="flex gap-3"><i data-lucide="circle-check" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true"></i>
+<p data-template-id="success-message-text" class="canva-text leading-6" style="color: #166534; font-weight: 500; font-style: normal; font-size: 15px;">Thank you! Your request has been received. Our team will get back to you shortly.</p>
+</div>
+<button id="dismiss-success" type="button" class="rounded p-1" aria-label="Dismiss notification"> <i data-lucide="x" class="h-4 w-4" aria-hidden="true"></i> </button></div>
+<form id="contact-form" novalidate="">
+<div class="grid gap-5 sm:grid-cols-2">
+<div><label data-template-id="name-label" class="canva-text mb-2 block font-medium" for="name" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">Full Name</label> <input type="text" required="" class="w-full rounded-md border border-[#ebebf3] px-4 py-3 text-[#161618] outline-none transition focus:border-[#ff5b60]" aria-required="true" /></div>
+<div><label data-template-id="email-label" class="canva-text mb-2 block font-medium" for="email" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">Email Address</label> <input id="email" name="email" type="email" required="" class="w-full rounded-md border border-[#ebebf3] px-4 py-3 text-[#161618] outline-none transition focus:border-[#ff5b60]" aria-required="true" /></div>
+</div>
+<div class="mt-5"><label data-template-id="subject-label" class="canva-text mb-2 block font-medium" for="subject" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">Subject</label> <input id="subject" name="subject" type="text" required="" class="w-full rounded-md border border-[#ebebf3] px-4 py-3 text-[#161618] outline-none transition focus:border-[#ff5b60]" aria-required="true" /></div>
+<div class="mt-5"><label data-template-id="message-label" class="canva-text mb-2 block font-medium" for="message" style="color: #161618; font-weight: 500; font-style: normal; font-size: 15px;">Your Message</label> <textarea id="message" name="message" rows="6" required="" class="w-full resize-y rounded-md border border-[#ebebf3] px-4 py-3 text-[#161618] outline-none transition focus:border-[#ff5b60]" aria-required="true"></textarea></div>
+<p id="form-error" class="mt-4 hidden rounded-md bg-[#fff0f1] p-3 text-sm text-[#b42318]" role="alert"></p>
+<button data-template-id="submit-button" type="submit" class="canva-button coral-button mt-6 w-full rounded-md py-3.5 font-semibold" style="background: #ff5b60; color: #ffffff; font-weight: 600; font-style: normal; font-size: 15px;">Send Request</button></form></div>
+</div>
+</section>
+<section id="terms" class="site-width py-16 border-t border-[#ebebf3]">
+<div class="grid gap-10 md:grid-cols-2">
+<div id="terms-of-service">
+<h2 data-template-id="terms-title" class="canva-text text-2xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 20px;">Terms of Service</h2>
+<p data-template-id="terms-description" class="canva-text mt-4 leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">By using AndroidAppp's services, you agree to comply with regulations regarding communication, intellectual property protection of delivered products, and payment schedules as agreed. All disputes will be prioritized for resolution through bilateral negotiation and mediation.</p>
+</div>
+<div id="privacy-policy">
+<h2 data-template-id="privacy-title" class="canva-text text-2xl font-bold" style="color: #161618; font-weight: bold; font-style: normal; font-size: 20px;">Privacy Policy</h2>
+<p data-template-id="privacy-description" class="canva-text mt-4 leading-7" style="color: #626262; font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">AndroidAppp is committed to protecting your personal information and project data. We only collect name, email, and project descriptions for consultation and quoting purposes. We strictly do not share data with any third parties without prior written consent.</p>
+</div>
+</div>
+</section>
+</main><footer data-template-id="site-footer" class="canva-footer bg-[#161618] py-10 text-center" style="background: #161618; color: #9ca3af;">
+<div class="site-width"><nav aria-label="Footer Navigation">
+<ul class="flex flex-wrap justify-center gap-x-7 gap-y-3">
+<li><a data-template-id="footer-home" class="canva-link nav-link" href="#home" style="color: #9ca3af; font-weight: 400; font-style: normal; font-size: 15px;">Home</a></li>
+<li><a data-template-id="footer-about" class="canva-link nav-link" href="#about" style="color: #9ca3af; font-weight: 400; font-style: normal; font-size: 15px;">About Us</a></li>
+<li><a data-template-id="footer-contact" class="canva-link nav-link" href="#contact" style="color: #9ca3af; font-weight: 400; font-style: normal; font-size: 15px;">Contact</a></li>
+<li><a data-template-id="footer-terms" class="canva-link nav-link" href="#terms-of-service" style="color: #9ca3af; font-weight: 400; font-style: normal; font-size: 15px;">Terms of Service</a></li>
+<li><a data-template-id="footer-privacy" class="canva-link nav-link" href="#privacy-policy" style="color: #9ca3af; font-weight: 400; font-style: normal; font-size: 15px;">Privacy Policy</a></li>
+</ul>
+</nav>
+<div class="my-6 border-t border-[#303035]"></div>
+<p data-template-id="copyright" class="canva-text text-sm" style="color: #6b7280; font-weight: 400; font-style: normal; font-size: 15px;">Copyright © 2026 AndroidAppp. All rights reserved.</p>
+</div>
+</footer></div>
+<p>
+<script src="/_sdk/c939c145c3c74230.editing_sdk.js" integrity="sha512-jh2pv/gl9Gzzn5dxfzwQO4wkqtnAQIim+LIUDYfVu2cdqPkQV2MqbjsDUW5IYbrSZFjRlOBrIWzlvWDXQYxOjg=="></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+
+      const menuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuButton.addEventListener("click", function () {
+        const isOpen = mobileMenu.classList.toggle("is-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      mobileMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          mobileMenu.classList.remove("is-open");
+          menuButton.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      const form = document.getElementById("contact-form");
+      const successMessage = document.getElementById("success-message");
+      const dismissSuccess = document.getElementById("dismiss-success");
+      const errorBox = document.getElementById("form-error");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          errorBox.textContent = "Please fill in all required fields and check your email address.";
+          errorBox.classList.remove("hidden");
+          form.reportValidity();
+          return;
+        }
+
+        errorBox.classList.add("hidden");
+        successMessage.classList.add("is-visible");
+        form.reset();
+        successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+
+      dismissSuccess.addEventListener("click", function () {
+        successMessage.classList.remove("is-visible");
+      });
+    });
+  </script>
+</p>
+</body></html>
