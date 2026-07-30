@@ -1974,6 +1974,26 @@ loopme.com, 20970, RESELLER, 6c8d5f95897a5a3b
 loopme.com, 20968, RESELLER, 6c8d5f95897a5a3b
 indexexchange.com, 216513, RESELLER, 50b1c356f2c5c8fc
 #Unity
+pubmatic.com, 166385, RESELLER, 5d62403b186f2ace
+pubmatic.com, 95054, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 28341, RESELLER, 0bfd66d529a55807
+sharethrough.com, 4568, RESELLER, d53b998a7bd4ecd2
+sharethrough.com, uvcax8il, RESELLER, d53b998a7bd4ecd12
+smartclip.net, 14679, RESELLER
+spinx.biz, 1373698903, RESELLER, 9f2711e9aaa9f992
+stroeer.com, 17379, RESELLER
+taurusx.com, 70097, RESELLER
+themediagrid.com, b8n9yh, RESELLER, 35d5010d7789b49d
+themediagrid.com, falino, RESELLER, 9fac4a4a87c2a44f
+themediagrid.com, jvhg38, RESELLER, 9fac4a4a87c2a44f
+triplelift.com, 14705-eb, RESELLER
+triplelift.com, 14705, RESELLER, 6c33edb13117fd86
+triplelift.com, 14709, RESELLER, 6c33edb13117fd86
+triplelift.com, 6998, RESELLER, 6c33edb13117fd86
+vidazoo.com, 6a3384a48eca8f6ddad62520, RESELLER, b6ada874b4d7d0b2
+videoheroes.tv, 212499, RESELLER, 064bc410192443d8
+vidoomy.com, 8953515, RESELLER
+zetaglobal.net, 525, RESELLER
 adform.com, 3400, RESELLER, 9f5210a2f0999e32
 admanmedia.com, 2242, RESELLER
 adyoulike.com, f78b24039641337f06634ab9a3da4b48, RESELLER
