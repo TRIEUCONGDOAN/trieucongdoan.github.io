@@ -1974,6 +1974,20 @@ loopme.com, 20970, RESELLER, 6c8d5f95897a5a3b
 loopme.com, 20968, RESELLER, 6c8d5f95897a5a3b
 indexexchange.com, 216513, RESELLER, 50b1c356f2c5c8fc
 #Unity
+bid-matrix.com, f2c71a45ea149366, RESELLER
+brightmountainmedia.com, 2686958, RESELLER
+connekt.ai, 5585919044, RESELLER
+copper6.com, 766114, RESELLER
+dauup.com, 34222, RESELLER, 4daba13e2b0dfd9
+loopme.com, 20775, RESELLER, 6c8d5f95897a5a3b
+media.net, 8cu675n41, RESELLER
+media.net, 8cuh46n56, RESELLER
+media.net, 8cusc3uj7, RESELLER
+media.net, 8cuuq286l, RESELLER
+nativo.com, 5958, RESELLER, 59521ca7cc5e9fee
+nativo.com, 6089, RESELLER, 59521ca7cc5e9fee
+netmarvel.com, 1011828, RESELLER, ca3509163a633862
+playwire.com, 1018531, RESELLER
 pubmatic.com, 166385, RESELLER, 5d62403b186f2ace
 pubmatic.com, 95054, RESELLER, 5d62403b186f2ace
 rubiconproject.com, 28341, RESELLER, 0bfd66d529a55807
