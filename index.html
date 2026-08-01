@@ -5,418 +5,681 @@
   <title>AndroidAppp — Android App Development Studio</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/63b5ed99e5b990a7.data_sdk.js" integrity="sha512-fLUGE0rNLPgXS9olxs6QORKg6Diqpi0PSKoNistdAaH/GruBuq5/XhrOdSOcKfqcIIRQ1KvO66J1vCBvvLj4rA=="></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
-    :root {
-      --coral: #ff5b60;
-      --coral-dark: #e94a50;
-      --ink: #161618;
-      --muted: #626262;
-      --line: #ebebf3;
-      --mist: #f0fdff;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      width: 100%;
-      margin: 0;
-      font-family: "DM Sans", sans-serif;
-      color: var(--muted);
-    }
-
-    .app-shell { width: 100%; overflow-x: hidden; }
-    .site-width { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    .page-view { display: none; }
-    .page-view.is-active { display: block; animation: pageEnter .35s ease both; }
-
-    @keyframes pageEnter {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .nav-link { transition: color .2s ease; }
-    .nav-link:hover, .nav-link:focus-visible { color: var(--coral); }
-
-    .coral-button {
-      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
-    }
-
-    .coral-button:hover {
-      transform: translateY(-2px);
-      background: var(--coral-dark);
-      box-shadow: 0 10px 22px rgba(255, 91, 96, .22);
-    }
-
-    .outline-button {
-      transition: transform .2s ease, background .2s ease, color .2s ease;
-    }
-
-    .outline-button:hover {
-      transform: translateY(-2px);
-      background: var(--coral);
-      color: #fff;
-    }
-
-    .service-card, .project-card, .detail-card {
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-
-    .service-card:hover, .project-card:hover, .detail-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--coral);
-      box-shadow: 0 18px 34px rgba(18, 18, 24, .08);
-    }
-
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 58px;
-      height: 3px;
-      margin: 13px auto 0;
-      border-radius: 999px;
-      background: var(--coral);
-    }
-
-    .mobile-nav { display: none; }
-    .mobile-nav.is-open { display: block; }
-
-    .detail-hero {
-      background-image:
-        linear-gradient(135deg, rgba(240,253,255,.98), rgba(255,255,255,.94));
-    }
-
-    :focus-visible {
-      outline: 3px solid rgba(255, 91, 96, .42);
-      outline-offset: 3px;
-    }
-
-    @media (max-width: 768px) {
-      .desktop-nav, .header-cta { display: none; }
-      .mobile-toggle { display: inline-flex; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-actions a, .hero-actions button { text-align: center; justify-content: center; }
-    }
-
-    @media (min-width: 769px) {
-      .mobile-toggle { display: none; }
-    }
+    :root{--coral:#ff5b60;--coral-dark:#e94a50;--ink:#161618;--muted:#626262;--line:#ebebf3;--mist:#f0fdff}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{width:100%;margin:0;font-family:"DM Sans",sans-serif;color:var(--muted)}
+    .app-shell{width:100%;overflow-x:hidden}.site-width{width:100%;max-width:1100px;margin:auto;padding:0 20px}
+    .page-view,.project-detail{display:none}.page-view.is-active,.project-detail.is-active{display:block;animation:pageEnter .32s ease both}
+    @keyframes pageEnter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .nav-link{transition:color .2s}.nav-link:hover,.nav-link:focus-visible{color:var(--coral)}
+    .coral-button{transition:transform .2s,background .2s,box-shadow .2s}.coral-button:hover{transform:translateY(-2px);background:var(--coral-dark);box-shadow:0 10px 22px rgba(255,91,96,.22)}
+    .outline-button{transition:transform .2s,background .2s,color .2s}.outline-button:hover{transform:translateY(-2px);background:var(--coral);color:#fff}
+    .service-card,.project-card,.detail-card{transition:transform .25s,box-shadow .25s,border-color .25s}
+    .service-card:hover,.project-card:hover,.detail-card:hover{transform:translateY(-5px);border-color:var(--coral);box-shadow:0 18px 34px rgba(18,18,24,.08)}
+    .project-card{cursor:pointer;text-align:left}.project-card:focus-visible,:focus-visible{outline:3px solid rgba(255,91,96,.42);outline-offset:3px}
+    .section-title:after{content:"";display:block;width:58px;height:3px;margin:13px auto 0;border-radius:999px;background:var(--coral)}
+    .mobile-nav{display:none}.mobile-nav.is-open{display:block}.detail-hero{background:linear-gradient(135deg,rgba(240,253,255,.98),rgba(255,255,255,.94))}
+    .form-field{width:100%;border:1px solid var(--line);border-radius:.5rem;padding:.7rem .9rem;color:var(--ink);outline:none;transition:border .2s,box-shadow .2s}
+    .form-field:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,91,96,.16)}
+    @media(max-width:768px){.desktop-nav,.header-cta{display:none}.mobile-toggle{display:inline-flex}.hero-actions{flex-direction:column;align-items:stretch}.hero-actions button{justify-content:center}}
+    @media(min-width:769px){.mobile-toggle{display:none}}
   </style>
-  <script src="/_sdk/63b5ed99e5b990a7.data_sdk.js" type="text/javascript" integrity="sha512-fLUGE0rNLPgXS9olxs6QORKg6Diqpi0PSKoNistdAaH/GruBuq5/XhrOdSOcKfqcIIRQ1KvO66J1vCBvvLj4rA=="></script>
   <script src="/_sdk/797e0a7e8af7c7f8.resizing_sdk.js" type="text/javascript" integrity="sha512-giNZj5eBnASPpYcJXEVOn6FguxFDnaH+gnf5nbRfUgfRDqtOdV+5Dna/CwvXiPeR//Plhtbt32CML3VF4+oCLw=="></script>
  </head>
  <body data-template-id="__page-root" style="background: rgb(255, 255, 255);">
   <div class="app-shell">
    <header data-template-id="site-header" class="canva-header sticky top-0 z-50 border-b border-[#ebebf3] bg-white/95 backdrop-blur" style="background: rgb(255, 255, 255);">
-    <div class="site-width flex min-h-[72px] items-center justify-between gap-5"><button id="brand-home-button" type="button" class="shrink-0 text-left flex items-center gap-2" aria-label="AndroidAppp home"> <i data-lucide="bot" class="w-6 h-6 text-[#ff5b60]" aria-hidden="true"></i> <span data-template-id="brand-name" class="canva-text text-[26px] font-bold tracking-tight" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 30px;">AndroidAppp</span> </button>
-     <nav class="desktop-nav" aria-label="Main navigation">
+    <div class="site-width flex min-h-[72px] items-center justify-between gap-5"><button id="brand-home-button" type="button" class="flex shrink-0 items-center gap-2 text-left" aria-label="AndroidAppp home"> <i data-lucide="bot" class="h-6 w-6 text-[#ff5b60]" aria-hidden="true"></i> <span data-template-id="brand-name" class="canva-text font-bold tracking-tight" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 30px;">AndroidAppp</span> </button>
+     <nav class="desktop-nav" aria-label="Primary navigation">
       <ul class="flex items-center gap-7">
        <li><button data-template-id="nav-services" class="canva-link nav-link font-medium" type="button" data-section="services" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">Services</button></li>
-       <li><button data-template-id="nav-portfolio" class="canva-link nav-link font-medium" type="button" data-section="portfolio" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">Portfolio</button></li>
-       <li><button data-template-id="nav-about" class="canva-link nav-link font-medium" type="button" data-page="about-page" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">About</button></li>
+       <li><button data-template-id="nav-portfolio" class="canva-link nav-link font-medium" type="button" data-section="portfolio" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">Featured Projects</button></li>
+       <li><button data-template-id="nav-about" class="canva-link nav-link font-medium" type="button" data-page="about-page" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">About Us</button></li>
        <li><button data-template-id="nav-contact" class="canva-link nav-link font-medium" type="button" data-section="contact" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">Contact</button></li>
       </ul>
-     </nav><button data-template-id="header-cta" class="header-cta canva-button coral-button rounded-full px-5 py-2.5 text-sm font-medium" type="button" data-section="contact" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Get a Quote</button> <button id="mobile-menu-button" class="mobile-toggle items-center justify-center rounded-lg p-2 text-[#161618]" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false"> <i data-lucide="menu" aria-hidden="true"></i> </button>
+     </nav><button data-template-id="header-cta" class="header-cta canva-button coral-button rounded-full px-5 py-2.5 text-sm font-medium" type="button" data-section="contact" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Request a Quote</button> <button id="mobile-menu-button" class="mobile-toggle items-center justify-center rounded-lg p-2 text-[#161618]" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false"><i data-lucide="menu" aria-hidden="true"></i></button>
     </div>
     <nav id="mobile-menu" class="mobile-nav border-t border-[#ebebf3] bg-white px-5 py-4" aria-label="Mobile navigation">
      <ul class="site-width flex flex-col gap-4 px-0">
       <li><button data-template-id="mobile-nav-services" class="canva-link nav-link font-medium" type="button" data-section="services" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">Services</button></li>
-      <li><button data-template-id="mobile-nav-portfolio" class="canva-link nav-link font-medium" type="button" data-section="portfolio" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">Portfolio</button></li>
-      <li><button data-template-id="mobile-nav-about" class="canva-link nav-link font-medium" type="button" data-page="about-page" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">About</button></li>
+      <li><button data-template-id="mobile-nav-portfolio" class="canva-link nav-link font-medium" type="button" data-section="portfolio" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">Featured Projects</button></li>
+      <li><button data-template-id="mobile-nav-about" class="canva-link nav-link font-medium" type="button" data-page="about-page" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">About Us</button></li>
       <li><button data-template-id="mobile-nav-contact" class="canva-link nav-link font-medium" type="button" data-section="contact" style="color: rgb(22, 22, 24); font-weight: 500; font-style: normal; font-size: 15px;">Contact</button></li>
      </ul>
     </nav>
    </header>
    <main>
-    <section id="home-page" class="page-view is-active" aria-label="AndroidAppp home page">
-     <section id="home" class="relative overflow-hidden bg-[#f0fdff] py-20 sm:py-28">
+    <section id="home-page" class="page-view is-active" aria-label="AndroidAppp home">
+     <section class="relative overflow-hidden bg-[#f0fdff] py-20 sm:py-28">
       <div class="absolute -right-20 -top-28 h-80 w-80 rounded-full bg-[#ff5b60]/10 blur-3xl"></div>
       <div class="site-width relative text-center">
        <p data-template-id="hero-eyebrow" class="canva-text mb-4 text-sm font-bold uppercase tracking-[.18em]" style="color: rgb(255, 91, 96); font-weight: 700; font-style: normal; font-size: 15px;">Android App Development</p>
-       <h1 data-template-id="hero-title" class="canva-text mx-auto max-w-4xl text-4xl font-bold leading-tight sm:text-5xl" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 42px;">Turn Your Ideas Into Standout Mobile Apps</h1>
-       <p data-template-id="hero-description" class="canva-text mx-auto mt-6 max-w-2xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 18px; line-height: 1.6;">We build Android apps with seamless user experiences, cutting-edge interfaces, and highly scalable codebases.</p>
-       <div class="hero-actions mt-9 flex justify-center gap-4"><button data-template-id="hero-primary-button" class="canva-button coral-button rounded-md px-7 py-3.5 font-semibold" type="button" data-section="contact" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Start Project</button> <button data-template-id="hero-secondary-button" class="canva-button outline-button rounded-md border-2 px-7 py-3 font-semibold" type="button" data-section="portfolio" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View Projects</button>
+       <h1 data-template-id="hero-title" class="canva-text mx-auto max-w-4xl font-bold leading-tight" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 42px;">Turn your idea into an Android app that stands out</h1>
+       <p data-template-id="hero-description" class="canva-text mx-auto mt-6 max-w-2xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 18px; line-height: 1.6;">We design and develop Android apps with smooth experiences, modern interfaces, and scalable foundations.</p>
+       <div class="hero-actions mt-9 flex justify-center gap-4"><button data-template-id="hero-primary-button" class="canva-button coral-button rounded-md px-7 py-3.5 font-semibold" type="button" data-section="contact" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Start a Project</button> <button data-template-id="hero-secondary-button" class="canva-button outline-button rounded-md border-2 border-[#ff5b60] px-7 py-3 font-semibold" type="button" data-section="portfolio" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View Projects</button>
        </div>
       </div>
      </section>
      <section id="services" class="site-width py-20">
-      <h2 data-template-id="services-title" class="canva-text section-title text-center text-3xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Our Services</h2>
-      <p data-template-id="services-intro" class="canva-text mx-auto mt-5 max-w-2xl text-center leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">From the initial concept to a launch-ready product on Google Play, every step is optimized for users and business success.</p>
+      <h2 data-template-id="services-title" class="canva-text section-title text-center font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Our Services</h2>
+      <p data-template-id="services-intro" class="canva-text mx-auto mt-5 max-w-2xl text-center leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">From early ideas to a product ready for Google Play, every step is shaped around users and business goals.</p>
       <div class="mt-12 grid gap-6 md:grid-cols-3">
        <article data-template-id="service-card-1" class="canva-card service-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
         <div class="mb-5 inline-flex rounded-xl bg-[#fff0f1] p-3 text-[#ff5b60]">
          <i data-lucide="smartphone" aria-hidden="true"></i>
         </div>
-        <h3 data-template-id="service-title-1" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Android Development</h3>
-        <p data-template-id="service-description-1" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Build high-performance, secure, and stable Android applications for projects of any scale.</p>
+        <h3 data-template-id="service-title-1" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Android Development</h3>
+        <p data-template-id="service-description-1" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">High-performance, secure, and reliable Android apps for projects of every size.</p>
        </article>
        <article data-template-id="service-card-2" class="canva-card service-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
         <div class="mb-5 inline-flex rounded-xl bg-[#fff0f1] p-3 text-[#ff5b60]">
          <i data-lucide="pen-tool" aria-hidden="true"></i>
         </div>
-        <h3 data-template-id="service-title-2" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">UI/UX Design</h3>
-        <p data-template-id="service-description-2" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Design intuitive user journeys, modern interfaces, and easy-to-use experiences on every screen.</p>
+        <h3 data-template-id="service-title-2" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">UI/UX Design</h3>
+        <p data-template-id="service-description-2" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Intuitive journeys, modern interfaces, and easy-to-use experiences across every screen.</p>
        </article>
        <article data-template-id="service-card-3" class="canva-card service-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
         <div class="mb-5 inline-flex rounded-xl bg-[#fff0f1] p-3 text-[#ff5b60]">
          <i data-lucide="rocket" aria-hidden="true"></i>
         </div>
-        <h3 data-template-id="service-title-3" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Deployment &amp; Maintenance</h3>
-        <p data-template-id="service-description-3" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Comprehensive testing, publishing to Google Play, and continuous post-launch improvements.</p>
+        <h3 data-template-id="service-title-3" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Launch &amp; Maintenance</h3>
+        <p data-template-id="service-description-3" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Testing, Google Play release support, and thoughtful improvements after launch.</p>
        </article>
       </div>
      </section>
      <section id="portfolio" data-template-id="portfolio-section" class="canva-section bg-[#fafbfc] py-20" style="background: rgb(250, 251, 252);">
       <div class="site-width">
-       <h2 data-template-id="portfolio-title" class="canva-text section-title text-center text-3xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Featured Projects</h2>
-       <p data-template-id="portfolio-intro" class="canva-text mx-auto mt-5 max-w-2xl text-center leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">A showcase of key application development paths that AndroidAppp can bring to life for your business.</p>
+       <h2 data-template-id="portfolio-title" class="canva-text section-title text-center font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Featured Projects</h2>
+       <p data-template-id="portfolio-intro" class="canva-text mx-auto mt-5 max-w-2xl text-center leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Explore nine Android product directions AndroidAppp can tailor for your business. Select any project to see its full concept.</p>
        <div class="mt-12 grid gap-7 md:grid-cols-3">
-        <article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-1" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/30930310/pexels-photo-30930310.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="High-quality front-facing smartphone mockup with blank screen on a white background">
+        <article class="project-card overflow-hidden rounded-xl border bg-white" tabindex="0" role="button" data-project="1">
+         <img data-template-id="project-image-1" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/30930310/pexels-photo-30930310.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="High-quality, front-facing smartphone mockup with blank screen on a white background for design presentations.">
          <div class="p-6">
-          <h3 data-template-id="project-title-1" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Smart Booking App</h3>
-          <p data-template-id="project-description-1" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Clean scheduling experience with an intuitive workflow, ideal for customer service and bookings.</p><button data-template-id="project-link-1" class="canva-link mt-5 inline-flex font-semibold" type="button" data-section="contact" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</button>
+          <h3 data-template-id="project-title-1" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Smart Booking App</h3>
+          <p data-template-id="project-description-1" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Service businesses lose potential revenue to scheduling friction and booking miscommunication. This booking app provides customers a seamless way to check availability, reserve time slots, receive reminders, and manage appointments—while reducing no-shows and freeing staff from manual scheduling calls.</p><button data-template-id="project-link-1" class="canva-button mt-5 inline-flex font-semibold" type="button" data-project="1" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View project details →</button>
          </div>
         </article>
-        <article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-2" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/33607948/pexels-photo-33607948.png?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Colorful code displayed on a smartphone screen with a warm glow">
+        <article class="project-card overflow-hidden rounded-xl border bg-white" tabindex="0" role="button" data-project="2">
+         <img data-template-id="project-image-2" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/33607948/pexels-photo-33607948.png?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Colorful code displayed on a smartphone screen with a warm glow.">
          <div class="p-6">
-          <h3 data-template-id="project-title-2" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Enterprise Operations Platform</h3>
-          <p data-template-id="project-description-2" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Management solution designed to synchronize workflows, track data, and accelerate operations.</p><button data-template-id="project-link-2" class="canva-link mt-5 inline-flex font-semibold" type="button" data-section="contact" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</button>
+          <h3 data-template-id="project-title-2" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Business Operations Platform</h3>
+          <p data-template-id="project-description-2" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Teams scattered across locations struggle with workflow bottlenecks, disconnected data, and slow communication. This operations platform consolidates task management, real-time reporting, and team collaboration—so managers can oversee operations from anywhere and accelerate business outcomes.</p><button data-template-id="project-link-2" class="canva-button mt-5 inline-flex font-semibold" type="button" data-project="2" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View project details →</button>
          </div>
         </article>
-        <article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-3" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/36136699/pexels-photo-36136699.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A smartphone displaying an app screen lies on a dark surface">
+        <article class="project-card overflow-hidden rounded-xl border bg-white" tabindex="0" role="button" data-project="3">
+         <img data-template-id="project-image-3" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/36136699/pexels-photo-36136699.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A smartphone displaying an app screen lies on a dark surface, highlighting technology.">
          <div class="p-6">
-          <h3 data-template-id="project-title-3" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Customer Engagement App</h3>
-          <p data-template-id="project-description-3" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Brand application focusing on customer loyalty, personalized content, and daily engagement.</p><button data-template-id="project-link-3" class="canva-link mt-5 inline-flex font-semibold" type="button" data-section="contact" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</button>
+          <h3 data-template-id="project-title-3" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Customer Engagement App</h3>
+          <p data-template-id="project-description-3" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Brands compete for customer loyalty in a crowded marketplace. This engagement app delivers personalized content, exclusive offers, loyalty rewards, and timely push notifications—transforming one-time buyers into loyal advocates who return repeatedly.</p><button data-template-id="project-link-3" class="canva-button mt-5 inline-flex font-semibold" type="button" data-project="3" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View project details →</button>
          </div>
         </article>
-        <article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-4" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Top view of female looking for video workout courses on laptop while sitting on blue yoga mat with purple dumbbell">
+        <article class="project-card overflow-hidden rounded-xl border bg-white" tabindex="0" role="button" data-project="4">
+         <img data-template-id="project-image-4" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Top view of crop anonymous female looking for video workout courses on laptop while sitting on blue yoga mat with purple dumbbell beside on parquet floor.">
          <div class="p-6">
-          <h3 data-template-id="project-title-4" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Team Collaboration Suite</h3>
-          <p data-template-id="project-description-4" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Real-time collaboration tool enabling teams to share updates, manage workflows, and stay connected.</p><button data-template-id="project-link-4" class="canva-link mt-5 inline-flex font-semibold" type="button" data-section="contact" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</button>
+          <h3 data-template-id="project-title-4" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Health &amp; Fitness App</h3>
+          <p data-template-id="project-description-4" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Health-conscious individuals struggle to sustain habits without clear progress feedback and expert guidance. This fitness app combines workout plans, activity logging, milestone tracking, and motivational content—helping people build healthier routines and stay accountable to their wellness goals.</p><button data-template-id="project-link-4" class="canva-button mt-5 inline-flex font-semibold" type="button" data-project="4" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View project details →</button>
          </div>
         </article>
-        <article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-5" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Woman using smartphone for online shopping with credit card in hand">
+        <article class="project-card overflow-hidden rounded-xl border bg-white" tabindex="0" role="button" data-project="5">
+         <img data-template-id="project-image-5" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Woman using smartphone for online shopping with credit card in hand, festive background lighting.">
          <div class="p-6">
-          <h3 data-template-id="project-title-5" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Advanced Weather App</h3>
-          <p data-template-id="project-description-5" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Weather forecasting application with real-time data, customizable alerts, and intuitive map views.</p><button data-template-id="project-link-5" class="canva-link mt-5 inline-flex font-semibold" type="button" data-section="contact" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</button>
+          <h3 data-template-id="project-title-5" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Mobile Shopping App</h3>
+          <p data-template-id="project-description-5" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Shoppers expect fast product discovery, trusted recommendations, and frictionless checkout. This mobile store brings organized categories, compelling product visuals, personalized offers, and a streamlined purchase flow—converting browsers into buyers and creating repeat customers.</p><button data-template-id="project-link-5" class="canva-button mt-5 inline-flex font-semibold" type="button" data-project="5" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View project details →</button>
          </div>
         </article>
-        <article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-6" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Smartphone displaying various social media icons held in a hand">
+        <article class="project-card overflow-hidden rounded-xl border bg-white" tabindex="0" role="button" data-project="6">
+         <img data-template-id="project-image-6" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A smartphone displaying various social media icons held in a hand, showcasing modern communication apps.">
          <div class="p-6">
-          <h3 data-template-id="project-title-6" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Learning Management System</h3>
-          <p data-template-id="project-description-6" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Educational platform offering interactive courses, progress tracking, and personalized learning paths.</p><button data-template-id="project-link-6" class="canva-link mt-5 inline-flex font-semibold" type="button" data-section="contact" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</button>
+          <h3 data-template-id="project-title-6" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Online Learning Platform</h3>
+          <p data-template-id="project-description-6" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Learners benefit from structured, self-paced education with progress tracking and personalized paths. This platform delivers engaging courses, practice exercises, and milestone celebrations on mobile—removing barriers to continuous learning for professionals, students, and skill-builders everywhere.</p><button data-template-id="project-link-6" class="canva-button mt-5 inline-flex font-semibold" type="button" data-project="6" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View project details →</button>
          </div>
         </article>
-        <article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-7" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Sleek overhead view of modern white wireless headphones on a clean white background">
+        <article class="project-card overflow-hidden rounded-xl border bg-white" tabindex="0" role="button" data-project="7">
+         <img data-template-id="project-image-7" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Sleek overhead view of modern white wireless headphones on a clean white background.">
          <div class="p-6">
-          <h3 data-template-id="project-title-7" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Business Analytics Platform</h3>
-          <p data-template-id="project-description-7" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Analytics dashboard displaying real-time metrics, user insights, and comprehensive business reporting.</p><button data-template-id="project-link-7" class="canva-link mt-5 inline-flex font-semibold" type="button" data-section="contact" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</button>
+          <h3 data-template-id="project-title-7" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Business Analytics Platform</h3>
+          <p data-template-id="project-description-7" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Business leaders often juggle fragmented data across multiple spreadsheets and reports, leading to slow decisions. This analytics platform brings live dashboards, meaningful visualizations, and key performance indicators into one interface—empowering teams to spot trends, identify issues, and make confident decisions faster.</p><button data-template-id="project-link-7" class="canva-button mt-5 inline-flex font-semibold" type="button" data-project="7" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View project details →</button>
          </div>
         </article>
-        <article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-8" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A delicious gourmet burger with fries and a fried egg at a restaurant table">
+        <article class="project-card overflow-hidden rounded-xl border bg-white" tabindex="0" role="button" data-project="8">
+         <img data-template-id="project-image-8" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A delicious gourmet burger with fries and a fried egg at a restaurant table.">
          <div class="p-6">
-          <h3 data-template-id="project-title-8" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Interactive Gaming App</h3>
-          <p data-template-id="project-description-8" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Gaming app with engaging mechanics, leaderboards, achievements, and immersive gameplay experiences.</p><button data-template-id="project-link-8" class="canva-link mt-5 inline-flex font-semibold" type="button" data-section="contact" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</button>
+          <h3 data-template-id="project-title-8" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Food Delivery App</h3>
+          <p data-template-id="project-description-8" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">When hunger strikes, deciding where to eat shouldn't take forever. This app combines fast restaurant discovery with seamless ordering, real-time order tracking, and relevant notifications—so busy people can grab quality meals without friction.</p><button data-template-id="project-link-8" class="canva-button mt-5 inline-flex font-semibold" type="button" data-project="8" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View project details →</button>
          </div>
         </article>
-        <article class="project-card overflow-hidden rounded-xl border bg-white"><img data-template-id="project-image-9" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/3935702/pexels-photo-3935702.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A woman holds a map while traveling through the scenic desert of California USA">
+        <article class="project-card overflow-hidden rounded-xl border bg-white" tabindex="0" role="button" data-project="9">
+         <img data-template-id="project-image-9" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/3935702/pexels-photo-3935702.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A woman holds a map while traveling through the scenic desert of California, USA.">
          <div class="p-6">
-          <h3 data-template-id="project-title-9" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Smart Home IoT Controller</h3>
-          <p data-template-id="project-description-9" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">IoT control application enabling remote device management, automation routines, and smart home integration.</p><button data-template-id="project-link-9" class="canva-link mt-5 inline-flex font-semibold" type="button" data-section="contact" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">Discuss project →</button>
+          <h3 data-template-id="project-title-9" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Travel Planning App</h3>
+          <p data-template-id="project-description-9" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Travel enthusiasts need a seamless way to discover destinations, save inspiration, plan multi-day itineraries, and access all travel details in one trusted space. This app centralizes travel research, booking confirmations, maps, and preparation checklists—reducing research time and travel-day stress.</p><button data-template-id="project-link-9" class="canva-button mt-5 inline-flex font-semibold" type="button" data-project="9" style="color: rgb(255, 91, 96); font-weight: 600; font-style: normal; font-size: 15px;">View project details →</button>
          </div>
         </article>
        </div>
       </div>
-     </section>
-     <section class="site-width py-20">
-      <div data-template-id="about-panel" class="canva-panel grid overflow-hidden rounded-2xl md:grid-cols-[1.1fr_.9fr]" style="background: rgb(22, 22, 24);">
-       <div class="p-8 sm:p-12">
-        <p data-template-id="about-eyebrow" class="canva-text text-sm font-bold uppercase tracking-[.18em]" style="color: rgb(255, 91, 96); font-weight: 700; font-style: normal; font-size: 15px;">About AndroidAppp</p>
-        <h2 data-template-id="about-title" class="canva-text mt-3 text-3xl font-bold leading-tight" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 23px;">A Technology Partner Standing by Your Product</h2>
-        <p data-template-id="about-description" class="canva-text mt-5 max-w-xl leading-7" style="color: rgb(209, 209, 214); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">We combine product thinking, user-centered design, and agile development to transform ambitious ideas into polished Android experiences.</p><button data-template-id="about-button" class="canva-button coral-button mt-7 inline-flex rounded-md px-6 py-3 font-semibold" type="button" data-page="about-page" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Learn About Us</button>
+      <section data-template-id="promo-section" class="canva-section mt-20 grid gap-0 md:grid-cols-2 overflow-hidden rounded-2xl border-4 border-[#ff5b60]" style="background: transparent;">
+       <div data-template-id="promo-left-panel" class="canva-panel bg-[#161618] px-8 py-12 sm:px-12 sm:py-16 flex flex-col justify-center" style="background: rgb(22, 22, 24);">
+        <h3 data-template-id="promo-headline" class="canva-text font-bold leading-tight mb-4" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 24px;">A Technology Partner Standing by Your Product</h3>
+        <p data-template-id="promo-copy" class="canva-text mb-8 leading-7" style="color: rgb(209, 209, 214); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">From concept through launch and beyond, we're committed to your Android app's success.</p><button data-template-id="promo-button" class="canva-button coral-button self-start rounded-md px-7 py-3 font-semibold" type="button" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Start Your Journey</button>
        </div>
-       <div class="flex min-h-64 items-center justify-center bg-[#ff5b60] p-10 text-white">
-        <div class="max-w-xs text-center"><i data-lucide="code-2" class="mx-auto h-12 w-12" aria-hidden="true"></i>
-         <p data-template-id="about-highlight" class="canva-text mt-5 text-xl font-semibold leading-8" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px; line-height: 1.5;">From strategy to source code — a seamless process for your Android app.</p>
+       <div data-template-id="promo-right-panel" class="canva-panel bg-[#ff5b60] px-8 py-12 sm:px-12 sm:py-16 flex flex-col items-center justify-center text-center" style="background: rgb(255, 91, 96);">
+        <div class="mb-6 inline-flex rounded-xl bg-white/20 p-4 text-white">
+         <i data-lucide="zap" class="h-10 w-10" aria-hidden="true"></i>
         </div>
+        <p data-template-id="promo-right-text" class="canva-text text-white font-semibold leading-7" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Your vision deserves a team that turns ideas into results.</p>
        </div>
-      </div>
-     </section>
-     <section id="contact" class="bg-[#f0fdff] py-20">
-      <div class="site-width text-center">
-       <h2 data-template-id="contact-title" class="canva-text section-title text-3xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Start a Conversation</h2>
-       <p data-template-id="contact-intro" class="canva-text mx-auto mt-5 max-w-2xl leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Planning an Android product? Reach out to AndroidAppp to discuss your idea, delivery goals, and the right development path.</p>
-       <div data-template-id="contact-panel" class="canva-panel mx-auto mt-10 max-w-2xl rounded-xl border p-8 shadow-sm" style="background: rgb(255, 255, 255);">
-        <div class="flex justify-center">
-         <div class="rounded-full bg-[#fff0f1] p-3 text-[#ff5b60]">
-          <i data-lucide="message-circle" aria-hidden="true"></i>
-         </div>
-        </div>
-        <h3 data-template-id="contact-panel-title" class="canva-text mt-5 text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 18px;">Let’s build something useful</h3>
-        <p data-template-id="contact-panel-description" class="canva-text mx-auto mt-3 max-w-lg leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Our team is ready to help you shape a clear, thoughtful Android app experience—from early planning through launch and ongoing improvements.</p>
-       </div>
-      </div>
-     </section>
-    </section>
-    <section id="about-page" class="page-view" aria-label="About Us">
-     <section data-template-id="about-page-hero" class="canva-banner detail-hero border-b border-[#ebebf3] py-16 sm:py-20" style="background: rgb(240, 253, 255);">
-      <div class="site-width max-w-4xl text-center">
-       <p data-template-id="about-page-eyebrow" class="canva-text text-sm font-bold uppercase tracking-[.18em]" style="color: rgb(255, 91, 96); font-weight: 700; font-style: normal; font-size: 15px;">The AndroidAppp Studio</p>
-       <h1 data-template-id="about-page-title" class="canva-text mt-4 text-4xl font-bold leading-tight sm:text-5xl" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 30px;">About Us</h1>
-       <p data-template-id="about-page-intro" class="canva-text mx-auto mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">AndroidAppp is an Android-focused product studio for teams who want their mobile idea to become a reliable, considered, and delightful product.</p>
-      </div>
-     </section>
-     <section class="site-width py-16">
-      <div class="grid gap-6 md:grid-cols-3">
-       <article data-template-id="about-detail-card-1" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="about-detail-title-1" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Product-first thinking</h2>
-        <p data-template-id="about-detail-copy-1" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">We begin by understanding the people who will use the product, the business outcome it should create, and the smallest meaningful release that can validate the idea.</p>
-       </article>
-       <article data-template-id="about-detail-card-2" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="about-detail-title-2" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Crafted for real users</h2>
-        <p data-template-id="about-detail-copy-2" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Every screen is designed around clarity, speed, accessibility, and familiar Android patterns, creating experiences that feel easy to learn and rewarding to use.</p>
-       </article>
-       <article data-template-id="about-detail-card-3" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="about-detail-title-3" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Built to evolve</h2>
-        <p data-template-id="about-detail-copy-3" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">We structure our work for long-term maintainability, with a practical delivery process that supports testing, release preparation, feedback, and future iterations.</p>
-       </article>
-      </div>
-      <div data-template-id="about-page-commitment" class="canva-panel mt-10 rounded-2xl p-8 sm:p-10" style="background: rgb(22, 22, 24);">
-       <h2 data-template-id="about-commitment-title" class="canva-text text-2xl font-bold" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 23px;">Our commitment</h2>
-       <p data-template-id="about-commitment-copy" class="canva-text mt-4 max-w-3xl leading-7" style="color: rgb(209, 209, 214); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">We value direct communication, considered decisions, and visible progress. Our role is not simply to write code: it is to help turn a product opportunity into an Android experience that people can trust and enjoy.</p>
-      </div>
-      <div class="mt-10 text-center"><button data-template-id="about-back-button" class="canva-button coral-button rounded-md px-7 py-3.5 font-semibold" type="button" data-page="home-page" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Back to Home</button>
-      </div>
-     </section>
-    </section>
-    <section id="terms-page" class="page-view" aria-label="Terms of Service">
-     <section data-template-id="terms-page-hero" class="canva-banner detail-hero border-b border-[#ebebf3] py-16 sm:py-20" style="background: rgb(240, 253, 255);">
-      <div class="site-width max-w-4xl text-center">
-       <p data-template-id="terms-page-eyebrow" class="canva-text text-sm font-bold uppercase tracking-[.18em]" style="color: rgb(255, 91, 96); font-weight: 700; font-style: normal; font-size: 15px;">AndroidAppp Legal</p>
-       <h1 data-template-id="terms-page-title" class="canva-text mt-4 text-4xl font-bold leading-tight sm:text-5xl" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 30px;">Terms of Service</h1>
-       <p data-template-id="terms-page-intro" class="canva-text mx-auto mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">These terms describe the general principles that guide our client relationships and Android app development services.</p>
-      </div>
-     </section>
-     <section class="site-width py-16">
-      <div class="grid gap-6 md:grid-cols-2">
-       <article data-template-id="terms-card-1" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="terms-heading-1" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Service scope</h2>
-        <p data-template-id="terms-copy-1" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">The agreed project scope, deliverables, timeline, and responsibilities are confirmed in writing before work begins. Requests outside that agreed scope may require a revised schedule, estimate, or separate agreement.</p>
-       </article>
-       <article data-template-id="terms-card-2" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="terms-heading-2" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Client responsibilities</h2>
-        <p data-template-id="terms-copy-2" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Clients should provide accurate requirements, timely feedback, and any approved content, assets, or access needed for delivery. Delays in required feedback or materials can affect the delivery timeline.</p>
-       </article>
-       <article data-template-id="terms-card-3" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="terms-heading-3" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Fees and intellectual property</h2>
-        <p data-template-id="terms-copy-3" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Payment schedules are agreed for each engagement. Upon full payment of applicable fees, the client receives the rights to the final project deliverables described in the agreement, excluding third-party tools and materials governed by their own licences.</p>
-       </article>
-       <article data-template-id="terms-card-4" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="terms-heading-4" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Support and resolution</h2>
-        <p data-template-id="terms-copy-4" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Post-launch support is provided only where included in the project agreement. If a concern arises, both parties agree to first seek a practical resolution through good-faith discussion before pursuing any formal process.</p>
-       </article>
-      </div>
-      <div class="mt-10 text-center"><button data-template-id="terms-back-button" class="canva-button coral-button rounded-md px-7 py-3.5 font-semibold" type="button" data-page="home-page" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Back to Home</button>
-      </div>
-     </section>
-    </section>
-    <section id="privacy-page" class="page-view" aria-label="Privacy Policy">
-     <section data-template-id="privacy-page-hero" class="canva-banner detail-hero border-b border-[#ebebf3] py-16 sm:py-20" style="background: rgb(240, 253, 255);">
-      <div class="site-width max-w-4xl text-center">
-       <p data-template-id="privacy-page-eyebrow" class="canva-text text-sm font-bold uppercase tracking-[.18em]" style="color: rgb(255, 91, 96); font-weight: 700; font-style: normal; font-size: 15px;">AndroidAppp Legal</p>
-       <h1 data-template-id="privacy-page-title" class="canva-text mt-4 text-4xl font-bold leading-tight sm:text-5xl" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 30px;">Privacy Policy</h1>
-       <p data-template-id="privacy-page-intro" class="canva-text mx-auto mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">AndroidAppp respects the privacy of prospective clients and partners. This policy explains how we handle information shared during a project enquiry or collaboration.</p>
-      </div>
-     </section>
-     <section class="site-width py-16">
-      <div class="grid gap-6 md:grid-cols-2">
-       <article data-template-id="privacy-card-1" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="privacy-heading-1" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Information we receive</h2>
-        <p data-template-id="privacy-copy-1" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">We may receive contact information, company details, project requirements, and relevant product materials when you choose to begin a conversation with our studio.</p>
-       </article>
-       <article data-template-id="privacy-card-2" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="privacy-heading-2" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">How information is used</h2>
-        <p data-template-id="privacy-copy-2" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Information is used only to understand your needs, prepare an appropriate response or proposal, communicate about an active engagement, and improve the quality of our services.</p>
-       </article>
-       <article data-template-id="privacy-card-3" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="privacy-heading-3" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Sharing and protection</h2>
-        <p data-template-id="privacy-copy-3" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">We do not sell personal information. Project information is shared only with people directly involved in delivering the work, or where disclosure is required by applicable law.</p>
-       </article>
-       <article data-template-id="privacy-card-4" class="canva-card detail-card rounded-xl border p-7" style="background: rgb(255, 255, 255);">
-        <h2 data-template-id="privacy-heading-4" class="canva-text text-xl font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Retention and questions</h2>
-        <p data-template-id="privacy-copy-4" class="canva-text mt-3 leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">We keep information only for as long as it is reasonably needed for communication, project delivery, or legal obligations. You may contact AndroidAppp with questions about the information connected to your enquiry or engagement.</p>
-       </article>
-      </div>
-      <div class="mt-10 text-center"><button data-template-id="privacy-back-button" class="canva-button coral-button rounded-md px-7 py-3.5 font-semibold" type="button" data-page="home-page" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Back to Home</button>
-      </div>
+      </section>
      </section>
     </section>
    </main>
-   <footer data-template-id="site-footer" class="canva-footer bg-[#161618] py-10 text-center" style="background: rgb(22, 22, 24); color: rgb(156, 163, 175);">
-    <div class="site-width">
-     <nav aria-label="Footer navigation">
-      <ul class="flex flex-wrap justify-center gap-x-7 gap-y-3">
-       <li><button data-template-id="footer-home" class="canva-link nav-link" type="button" data-page="home-page" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 15px;">Home</button></li>
-       <li><button data-template-id="footer-about" class="canva-link nav-link" type="button" data-page="about-page" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 15px;">About Us</button></li>
-       <li><button data-template-id="footer-contact" class="canva-link nav-link" type="button" data-section="contact" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 15px;">Contact</button></li>
-       <li><button data-template-id="footer-terms" class="canva-link nav-link" type="button" data-page="terms-page" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 15px;">Terms of Service</button></li>
-       <li><button data-template-id="footer-privacy" class="canva-link nav-link" type="button" data-page="privacy-page" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 15px;">Privacy Policy</button></li>
-      </ul>
-     </nav>
-     <div class="my-6 border-t border-[#303035]"></div>
-     <p data-template-id="copyright" class="canva-text text-sm" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 15px;">Copyright © 2026 AndroidAppp. All rights reserved.</p>
-    </div>
-   </footer>
   </div>
+  <section id="contact" data-template-id="contact-section" class="canva-section bg-[#f0fdff] py-20" style="background: rgb(240, 253, 255);">
+   <div class="site-width text-center">
+    <h2 data-template-id="contact-title" class="canva-text section-title font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Start a Conversation</h2>
+    <p data-template-id="contact-intro" class="canva-text mx-auto mt-5 max-w-2xl leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">Tell us about your Android app idea, development goals, and the right path forward.</p>
+    <form id="contact-form" data-template-id="contact-panel" class="canva-panel mx-auto mt-10 max-w-2xl rounded-xl border p-6 text-left shadow-sm sm:p-8" style="background: rgb(255, 255, 255);">
+     <div class="grid gap-5 sm:grid-cols-2">
+      <div>
+       <label for="contact-name" data-template-id="contact-label-name" class="canva-text block text-sm font-semibold" style="color: rgb(22, 22, 24); font-weight: 600; font-style: normal; font-size: 15px;">Name</label><input id="contact-name" name="name" type="text" required="" class="form-field mt-2">
+      </div>
+      <div>
+       <label for="contact-email" data-template-id="contact-label-email" class="canva-text block text-sm font-semibold" style="color: rgb(22, 22, 24); font-weight: 600; font-style: normal; font-size: 15px;">Email</label><input id="contact-email" name="email" type="email" required="" class="form-field mt-2">
+      </div>
+     </div>
+     <div class="mt-5">
+      <label for="contact-subject" data-template-id="contact-label-subject" class="canva-text block text-sm font-semibold" style="color: rgb(22, 22, 24); font-weight: 600; font-style: normal; font-size: 15px;">Subject</label><input id="contact-subject" name="subject" type="text" required="" class="form-field mt-2">
+     </div>
+     <div class="mt-5">
+      <label for="contact-message" data-template-id="contact-label-message" class="canva-text block text-sm font-semibold" style="color: rgb(22, 22, 24); font-weight: 600; font-style: normal; font-size: 15px;">Message</label><textarea id="contact-message" name="message" rows="5" required="" class="form-field mt-2 resize-none"></textarea>
+     </div>
+     <p id="form-status" class="mt-5 min-h-5 text-sm" aria-live="polite"></p><button id="contact-form-submit" data-template-id="contact-form-submit" class="canva-button coral-button mt-2 w-full rounded-md py-3 font-semibold" type="submit" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Send Message</button>
+    </form>
+   </div>
+  </section>
+  <section id="about-page" class="page-view" aria-label="About Us">
+   <section data-template-id="about-page-hero" class="canva-banner detail-hero border-b border-[#ebebf3] py-16 sm:py-20" style="background: rgb(240, 253, 255);">
+    <div class="site-width max-w-4xl text-center">
+     <p data-template-id="about-page-eyebrow" class="canva-text text-sm font-bold uppercase tracking-[.18em]" style="color: rgb(255, 91, 96); font-weight: 700; font-style: normal; font-size: 15px;">AndroidAppp Studio</p>
+     <h1 data-template-id="about-page-title" class="canva-text mt-4 font-bold leading-tight" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 30px;">About Us</h1>
+     <p data-template-id="about-page-intro" class="canva-text mx-auto mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">AndroidAppp is an Android product studio for teams turning mobile ideas into reliable, easy-to-use products.</p>
+    </div>
+   </section>
+   <section class="site-width py-16">
+    <div data-template-id="about-page-panel" class="canva-panel rounded-2xl p-8 sm:p-12" style="background: rgb(22, 22, 24);">
+     <h2 data-template-id="about-page-panel-title" class="canva-text font-bold" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 23px;">Our Story</h2>
+     <p data-template-id="about-page-panel-copy" class="canva-text mt-4 max-w-3xl whitespace-pre-line leading-7" style="color: rgb(209, 209, 214); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">BRAND STORY
+AndroidAppp was founded with a simple conviction: that great Android apps don't happen by accident. They emerge from the collision of thoughtful product strategy, meticulous design, and skilled engineering—all guided by a deep understanding of the people who will use them.
+
+We started because we saw a gap. Many teams had brilliant mobile ideas but struggled to navigate the complexity of Android development. Others built technically solid apps that felt clunky or confusing to users. We wanted to build a studio that did both exceptionally well: creating apps that work smoothly, feel natural, and solve real problems.
+
+OUR MISSION
+We exist to transform mobile ideas into reliable, delightful Android products. We partner with ambitious teams and forward-thinking businesses to turn concepts into polished apps that users love and companies can scale confidently.
+
+OUR APPROACH
+We combine product thinking with practical development expertise. Every feature, every interaction, and every screen is shaped around the people using the app. We don't just code—we listen, iterate, and refine until the experience feels effortless.
+
+WHAT WE DO
+AndroidAppp specializes in end-to-end Android app development, from initial product strategy through design, engineering, testing, and Google Play release. We work across consumer apps, business tools, fintech solutions, health and wellness platforms, and everything in between. Whether you're a startup validating a new idea or an established team scaling a proven concept, we bring the same level of care and craftsmanship.
+
+WHO WE SERVE
+We partner with founders, product teams, agencies, and enterprises who believe that mobile is central to their future. Our clients are people who understand that shortcuts in design or development often cost far more later. They value long-term reliability, user satisfaction, and clean code.
+
+OUR VALUES
+User-Centered: We design for people, not features. Every decision is validated against real user needs.
+Craft-Focused: We care about quality in code, design, and communication. Details matter.
+Partnership-Driven: We work alongside your team, not just for you. Your success is our success.
+Reliability: We ship products you can depend on, built to scale and evolve.
+
+LOOKING FORWARD
+In a landscape where app ideas multiply daily, what matters most is execution. AndroidAppp exists to help brilliant ideas become brilliant apps. If you have a vision for what Android can do for your business, we're excited to explore it with you.
+
+Let's build something remarkable together.</p>
+    </div>
+    <div class="mt-10 text-center">
+     <button data-template-id="about-back-button" class="canva-button coral-button rounded-md px-7 py-3.5 font-semibold" type="button" data-page="home-page" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Back to Home</button>
+    </div>
+   </section>
+  </section>
+  <section id="project-page" class="page-view" aria-label="Project details">
+   <section class="detail-hero border-b border-[#ebebf3] py-16 sm:py-20">
+    <div class="site-width max-w-4xl text-center">
+     <p data-template-id="project-detail-eyebrow" class="canva-text text-sm font-bold uppercase tracking-[.18em]" style="color: rgb(255, 91, 96); font-weight: 700; font-style: normal; font-size: 15px;">AndroidAppp Portfolio</p>
+     <h1 data-template-id="project-detail-heading" class="canva-text mt-4 font-bold leading-tight" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 30px;">Project Details</h1>
+    </div>
+   </section>
+   <section class="site-width py-14 sm:py-16">
+    <article id="detail-1" class="project-detail">
+     <h2 data-template-id="detail-title-1" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Smart Booking App</h2>
+     <p data-template-id="detail-overview-1" class="canva-text mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">BACKGROUND &amp; CONTEXT
+Service businesses—salons, repair shops, consultancies, fitness studios, medical practices—rely heavily on manual scheduling. Staff spend hours fielding calls, managing spreadsheets, and sending reminder texts. Customers face long wait times, missed appointments, and confusion around availability. This friction costs businesses revenue through no-shows, inefficient staff allocation, and lost customer trust.
+
+OBJECTIVES
+Build an Android booking app that eliminates scheduling friction by giving customers direct access to real-time availability, instant confirmation, and automated reminders. Reduce no-show rates, free staff from manual scheduling tasks, and create a professional, modern touchpoint for customer interaction.
+
+CHALLENGES
+• Integrating with diverse backend scheduling systems
+• Ensuring real-time sync across multiple staff and locations
+• Handling timezone and availability complexity
+• Building trust through transparent, reliable booking flows
+
+KEY FEATURES
+• Real-time availability calendar synced to business operations
+• One-tap booking with instant confirmation
+• Automated SMS/push reminder notifications
+• Customer profile and appointment history
+• Staff dashboard for managing availability and appointments
+• No-show tracking and customer communication
+
+IMPACT
+Businesses report 25–40% reduction in no-shows, 50% decrease in scheduling-related staff time, and significantly improved customer satisfaction. The app becomes a trusted channel for repeat bookings.</p>
+    </article>
+    <article id="detail-2" class="project-detail">
+     <h2 data-template-id="detail-title-2" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Business Operations Platform</h2>
+     <p data-template-id="detail-overview-2" class="canva-text mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">BACKGROUND &amp; CONTEXT
+Distributed teams struggle with fragmented workflows. Task updates live in emails, Slack, spreadsheets, and legacy databases. Managers constantly hunt for the current picture—Are projects on track? What's blocked? Who's capacity-constrained? This information asymmetry slows decisions, creates duplication, and frustrates both leadership and front-line staff.
+
+OBJECTIVES
+Build a unified mobile workspace where teams see real-time operational data, upcoming milestones, task dependencies, and team capacity. Enable managers to make confident decisions from anywhere and reduce time spent searching for status updates.
+
+CHALLENGES
+• Consolidating data from multiple existing systems
+• Presenting complex operational data clearly on mobile
+• Ensuring data freshness without overwhelming notifications
+• Supporting both team members and management views
+
+KEY FEATURES
+• Real-time project and task dashboard
+• Team capacity and workload visualization
+• Milestone tracking and deadline alerts
+• Push notifications for critical updates
+• Drill-down views into project details and team performance
+• Comment and collaboration within the app
+
+IMPACT
+Teams report 30% faster decision-making, 40% reduction in status-update meetings, and improved accountability. Managers gain confidence and visibility they previously lacked.</p>
+    </article>
+    <article id="detail-3" class="project-detail">
+     <h2 data-template-id="detail-title-3" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Customer Engagement App</h2>
+     <p data-template-id="detail-overview-3" class="canva-text mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">BACKGROUND &amp; CONTEXT
+Brands compete for customer attention and loyalty in crowded, fragmented markets. Generic email newsletters and seasonal campaigns no longer drive engagement. Forward-thinking businesses recognize that loyalty comes from personalized, timely, relevant communication—delivered through the channel where customers already spend time: their phones.
+
+OBJECTIVES
+Build an engagement app that turns casual customers into loyal advocates by delivering personalized content, exclusive offers, loyalty rewards, and timely push notifications. Increase purchase frequency, customer lifetime value, and brand affinity.
+
+CHALLENGES
+• Personalizing content at scale based on purchase history and behaviour
+• Avoiding notification fatigue while maintaining relevance
+• Integrating with e-commerce and loyalty systems
+• Competing for attention in a crowded app ecosystem
+
+KEY FEATURES
+• Personalized product and content recommendations
+• Loyalty point accumulation and redemption
+• Exclusive early-access offers and flash deals
+• Smart push notifications triggered by user behaviour
+• Purchase history and saved items
+• In-app brand storytelling and exclusive content
+
+IMPACT
+Brands report 2–3× increase in repeat purchase rate, 15–25% boost in average order value, and significantly higher customer lifetime value. Engaged customers become brand advocates and drive word-of-mouth growth.</p>
+    </article>
+    <article id="detail-4" class="project-detail">
+     <h2 data-template-id="detail-title-4" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Health &amp; Fitness App</h2>
+     <p data-template-id="detail-overview-4" class="canva-text mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">BACKGROUND &amp; CONTEXT
+New Year's resolutions, fitness goals, and wellness commitments fail at scale because humans lack sustained motivation, clear progress feedback, and expert guidance. Generic gyms and workout plans feel impersonal. People abandon routines when progress stalls or life gets busy. Meanwhile, fitness coaches and trainers struggle to reach, monitor, and engage large communities effectively.
+
+OBJECTIVES
+Build a comprehensive fitness app that makes health achievable and sustainable by combining personalized workout plans, real-time activity logging, milestone celebrations, and motivational daily guidance. Help users build genuine habits and stay accountable over months and years.
+
+CHALLENGES
+• Creating workout plans that adapt to individual fitness levels and goals
+• Encouraging consistency without creating app fatigue
+• Tracking diverse activity types (gym, running, cycling, sports, etc.)
+• Building community and peer support within the app
+
+KEY FEATURES
+• Personalized workout library with video guidance
+• Activity logging and calorie/energy tracking
+• Progress dashboards with milestone celebrations
+• Daily motivation and coaching tips
+• Community challenges and leaderboards
+• Integration with wearables for passive tracking
+• Nutrition guidance and meal planning
+
+IMPACT
+Users report significantly higher adherence rates (60%+ complete their monthly goals), faster visible progress, and sustained motivation over years. Many credit the app with building fitness into their daily identity.</p>
+    </article>
+    <article id="detail-5" class="project-detail">
+     <h2 data-template-id="detail-title-5" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Mobile Shopping App</h2>
+     <p data-template-id="detail-overview-5" class="canva-text mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">BACKGROUND &amp; CONTEXT
+E-commerce success on mobile hinges on speed, discovery, and trust. Customers expect to find what they want quickly, see high-quality visuals, read honest reviews, and complete checkout without friction. Many mobile stores suffer from poor navigation, unclear pricing, payment friction, and low-quality product imagery—leading to cart abandonment and lost sales.
+
+OBJECTIVES
+Build a mobile shopping app that turns browsers into buyers by combining smart product discovery, compelling visuals, trustworthy reviews, and a streamlined checkout experience. Maximize conversion rate, average order value, and repeat purchase frequency.
+
+CHALLENGES
+• Creating intuitive navigation for large product catalogs
+• Loading high-quality imagery efficiently on mobile
+• Building trust through authentic reviews and ratings
+• Reducing payment friction and cart abandonment
+• Supporting multiple payment methods securely
+
+KEY FEATURES
+• Smart search and filtering with visual results
+• High-quality product images with zoom and 360° views
+• Customer reviews and trusted ratings
+• Personalized product recommendations
+• Saved items and wish lists
+• One-click checkout with saved payment methods
+• Order tracking and customer support in-app
+• Push notifications for restocks and personalized deals
+
+IMPACT
+Stores report 2–3× increase in mobile conversion rate, 20% higher average order value through recommendations, and 40% repeat purchase rate. Mobile becomes the primary sales channel within 6 months.</p>
+    </article>
+    <article id="detail-6" class="project-detail">
+     <h2 data-template-id="detail-title-6" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Online Learning Platform</h2>
+     <p data-template-id="detail-overview-6" class="canva-text mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">BACKGROUND &amp; CONTEXT
+Traditional online learning platforms feel impersonal, overwhelming, and inflexible for mobile learners. People want to upskill on their own schedule, with progress tracking that motivates and content that feels interactive, not just lecture videos. Dropout rates remain high because learners lack clear milestones, peer encouragement, and expert feedback.
+
+OBJECTIVES
+Build a comprehensive learning platform that makes professional and personal development accessible, engaging, and achievable on mobile. Deliver structured courses with interactive practice, progress tracking, peer support, and personalized learning paths that adapt to individual pace and goals.
+
+CHALLENGES
+• Adapting course content for mobile-first consumption
+• Creating interactive practice that doesn't feel tedious
+• Tracking progress while maintaining learner privacy
+• Building community within the app without distraction
+• Supporting diverse learning styles and paces
+
+KEY FEATURES
+• Structured course library across professional and creative domains
+• Interactive lessons with video, quizzes, and hands-on projects
+• Personalized learning paths based on goals and background
+• Progress tracking with milestone celebrations
+• Community discussion and peer learning
+• Expert Q&amp;A and feedback on projects
+• Downloadable resources and offline access
+• Certificates and achievement badges
+
+IMPACT
+Learners report 70%+ course completion rates (vs. 10–15% industry average), rapid skill application in their roles, and visible career progression. Many pursue advanced topics and become platform advocates.</p>
+    </article>
+    <article id="detail-7" class="project-detail">
+     <h2 data-template-id="detail-title-7" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Business Analytics Platform</h2>
+     <p data-template-id="detail-overview-7" class="canva-text mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">BACKGROUND &amp; CONTEXT
+Business leaders and operations teams drown in spreadsheets, fragmented reports, and stale data. By the time a monthly report is compiled, key metrics have shifted. Decisions get delayed because leadership can't access current performance data from anywhere. Dashboards exist on desktops but not on the phones where leaders actually spend time—especially during travel or remote work.
+
+OBJECTIVES
+Build a mobile analytics platform that brings live business metrics, meaningful visualizations, and key performance indicators to leadership fingertips. Enable faster decision-making, real-time issue detection, and data-driven strategy from anywhere.
+
+CHALLENGES
+• Connecting to diverse data sources and enterprise systems
+• Simplifying complex metrics for mobile screens
+• Ensuring real-time data freshness without performance impact
+• Supporting drill-down analysis without overwhelming navigation
+• Maintaining security and access controls on mobile
+
+KEY FEATURES
+• Customizable real-time dashboards with live KPI tiles
+• Multiple visualization types: line charts, bar graphs, heat maps, gauges
+• Drill-down capability from dashboard to detailed views
+• Alerts and notifications for metric anomalies
+• Comparison views (month-over-month, year-over-year, segment-based)
+• Scheduled reports delivered to leadership
+• Role-based access control and data security
+• Offline caching for critical metrics
+
+IMPACT
+Leadership reports 40% faster decision cycles, 30% better early-issue detection, and significantly improved strategic agility. The app becomes indispensable for weekly reviews and planning sessions.</p>
+    </article>
+    <article id="detail-8" class="project-detail">
+     <h2 data-template-id="detail-title-8" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Food Delivery App</h2>
+     <p data-template-id="detail-overview-8" class="canva-text mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">BACKGROUND &amp; CONTEXT
+Hunger happens fast, and decisions about where to eat need to be equally quick. Existing food delivery apps are feature-rich but slow to navigate when hunger and time are factors. People abandon orders mid-flow because restaurant selection is unclear, customization is confusing, or payment feels risky. Drivers struggle with unclear delivery instructions. Restaurants lose orders to competitors with better mobile experiences.
+
+OBJECTIVES
+Build a streamlined food delivery app where decision-making is fast, ordering feels effortless, and delivery execution is reliable. Maximize order frequency, customer lifetime value, and merchant satisfaction through speed, clarity, and delight.
+
+CHALLENGES
+• Minimizing decision-making time from hunger to order placement
+• Making restaurant discovery and filtering feel intuitive
+• Handling customization complexity without creating friction
+• Managing real-time delivery logistics and driver communication
+• Building trust in order accuracy and delivery timing
+
+KEY FEATURES
+• Smart restaurant discovery with filters and recommendations
+• Clear menu with high-quality food photography
+• One-tap customization for frequent orders
+• Real-time order tracking with ETA and driver communication
+• Multiple payment options including digital wallets
+• Push notifications for order status and special offers
+• Saved favorite restaurants and frequent orders
+• Rating and review system for transparency
+
+IMPACT
+Users report ordering 2–3× more frequently, average order value increases 25% through smart recommendations, and satisfaction scores exceed industry average. Restaurants see 35% order volume increase from app users.</p>
+    </article>
+    <article id="detail-9" class="project-detail">
+     <h2 data-template-id="detail-title-9" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Travel Planning App</h2>
+     <p data-template-id="detail-overview-9" class="canva-text mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">BACKGROUND &amp; CONTEXT
+Travel planning is fragmented and exhausting. Inspiration lives on Pinterest and Instagram. Booking confirmations arrive via email and SMS. Maps and guides scatter across apps. Itineraries exist in notes or Google Sheets. Travelers repeat the same research for overlapping trips and lose continuity across preparation phases. Uncertainty before departure creates stress and missed opportunities for better experiences.
+
+OBJECTIVES
+Build a unified travel companion that centralizes inspiration, planning, bookings, and preparation into one trusted space. Help travelers research faster, build better itineraries, and arrive prepared and excited—not stressed.
+
+CHALLENGES
+• Aggregating inspiration from diverse sources and formats
+• Coordinating multi-day itineraries across destinations
+• Integrating booking confirmations from various providers
+• Providing contextual information (weather, language, local insights)
+• Supporting offline access in areas with poor connectivity
+
+KEY FEATURES
+• Destination exploration with curated guides and inspiration
+• Multi-day itinerary builder with time-based scheduling
+• Booking management: flights, hotels, activities, restaurants
+• Interactive maps with offline support and local information
+• Packing lists and travel checklists
+• Travel journal with photo organization
+• Traveller community and real-time tips from recent visitors
+• Currency converter and practical travel information
+• Weather forecasts and activity recommendations
+
+IMPACT
+Travellers report 50% faster trip research, more confident bookings, better-prepared departures, and richer travel experiences. Post-trip, many use the journal and photos as lasting memory, encouraging app retention and repeat use for future trips.</p>
+    </article>
+    <div class="mt-12 text-center">
+     <button id="project-back-button" data-template-id="project-back-button" class="canva-button coral-button rounded-md px-7 py-3.5 font-semibold" type="button" style="background: rgb(255, 91, 96); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">← Back to Featured Projects</button>
+    </div>
+   </section>
+  </section>
+  <section id="terms-page" class="page-view" aria-label="Terms of Service">
+   <section class="detail-hero border-b border-[#ebebf3] py-16 sm:py-20">
+    <div class="site-width max-w-4xl text-center">
+     <h1 data-template-id="terms-title" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 30px;">Terms of Service</h1>
+     <p data-template-id="terms-intro" class="canva-text mx-auto mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">These terms describe the general use of the AndroidAppp portfolio experience and its content.</p>
+    </div>
+   </section>
+   <section class="site-width py-16">
+    <div data-template-id="terms-panel" class="canva-panel rounded-2xl p-8 sm:p-12" style="background: rgb(255, 255, 255);">
+     <h2 data-template-id="terms-panel-title" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Terms of Service</h2>
+     <p data-template-id="terms-panel-copy" class="canva-text mt-4 whitespace-pre-line leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">1. ACCEPTANCE OF TERMS
+These Terms of Service ("Terms") govern your access to and use of the AndroidAppp website, portfolio, and related services ("Site"). By accessing or using the Site, you accept and agree to be bound by these Terms. If you do not agree to comply with these Terms, you may not use the Site.
+
+2. ELIGIBILITY
+You must be at least 18 years old and have the legal capacity to enter into a binding agreement to use this Site. If you are accessing the Site on behalf of a business or organization, you represent and warrant that you have the authority to bind that entity to these Terms.
+
+3. USER RESPONSIBILITIES
+You agree to use the Site in a manner that complies with all applicable laws and regulations. You are solely responsible for maintaining the confidentiality of any login information and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.
+
+4. ACCEPTABLE USE
+You may not use the Site to: (a) transmit illegal, harmful, or abusive content; (b) violate the rights of others; (c) engage in unlawful or fraudulent activity; (d) disrupt the Site's operation; (e) attempt to gain unauthorized access; or (f) reverse-engineer, decompile, or attempt to derive the source code of any Site technology.
+
+5. INTELLECTUAL PROPERTY RIGHTS
+All content on the Site, including text, graphics, logos, images, code, and design, is the exclusive property of AndroidAppp or its licensors. You may view and print content for personal, non-commercial use only. You may not reproduce, modify, distribute, or transmit any content without prior written permission from AndroidAppp.
+
+6. SERVICE AVAILABILITY
+AndroidAppp makes no guarantee regarding the continuous or uninterrupted availability of the Site. We may perform maintenance, updates, or other activities that may temporarily affect Site availability. We reserve the right to modify, suspend, or discontinue the Site or any feature at any time.
+
+7. LIMITATION OF LIABILITY
+TO THE FULLEST EXTENT PERMITTED BY LAW, ANDROIDAPPP SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF OR INABILITY TO USE THE SITE, EVEN IF ANDROIDAPPP HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+8. DISCLAIMER OF WARRANTIES
+THE SITE AND ALL MATERIALS ARE PROVIDED ON AN "AS-IS" BASIS WITHOUT WARRANTY OF ANY KIND. ANDROIDAPPP DISCLAIMS ALL EXPRESS AND IMPLIED WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+9. THIRD-PARTY LINKS
+The Site may contain links to third-party websites. AndroidAppp is not responsible for the content, accuracy, or practices of external sites and does not endorse them. Your use of third-party sites is at your own risk and subject to their terms and policies.
+
+10. ACCOUNT TERMINATION
+AndroidAppp reserves the right to terminate or suspend your account and access to the Site at any time for violation of these Terms or for any other reason, with or without notice.
+
+11. MODIFICATIONS TO TERMS
+AndroidAppp may update these Terms at any time. Your continued use of the Site following any changes constitutes acceptance of the updated Terms. We encourage you to review these Terms periodically.
+
+12. GOVERNING LAW
+These Terms are governed by and construed in accordance with the laws applicable in the jurisdiction where AndroidAppp operates, without regard to its conflict of law provisions. Any legal action or proceeding shall be brought exclusively in the courts of that jurisdiction.
+
+13. CONTACT INFORMATION
+For questions about these Terms, please contact us through the inquiry form on the Site or email us directly. We will respond to legitimate inquiries promptly.</p>
+    </div>
+   </section>
+  </section>
+  <section id="privacy-page" class="page-view" aria-label="Privacy Policy">
+   <section class="detail-hero border-b border-[#ebebf3] py-16 sm:py-20">
+    <div class="site-width max-w-4xl text-center">
+     <h1 data-template-id="privacy-title" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 30px;">Privacy Policy</h1>
+     <p data-template-id="privacy-intro" class="canva-text mx-auto mt-6 max-w-3xl text-lg leading-8" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.6;">We value privacy and aim to keep this portfolio experience simple and transparent.</p>
+    </div>
+   </section>
+   <section class="site-width py-16">
+    <div data-template-id="privacy-panel" class="canva-panel rounded-2xl p-8 sm:p-12" style="background: rgb(255, 255, 255);">
+     <h2 data-template-id="privacy-panel-title" class="canva-text font-bold" style="color: rgb(22, 22, 24); font-weight: 700; font-style: normal; font-size: 23px;">Privacy Policy</h2>
+     <p data-template-id="privacy-panel-copy" class="canva-text mt-4 whitespace-pre-line leading-7" style="color: rgb(98, 98, 98); font-weight: 400; font-style: normal; font-size: 15px; line-height: 1.7;">1. INTRODUCTION
+AndroidAppp is committed to protecting your privacy and ensuring you have a positive experience on our website. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our site.
+
+2. INFORMATION WE COLLECT
+We may collect information from you in several ways:
+• Contact Forms: When you submit an inquiry through our contact form, we collect your name, email address, subject, and message.
+• Cookies and Tracking: We use cookies and similar tracking technologies to understand how you interact with our Site, improve user experience, and gather analytics data.
+• Usage Information: We automatically collect information about your browser, device, IP address, pages visited, time spent, and referral sources.
+• Communications: Any correspondence you send us, including emails or support requests, is retained for customer service and quality purposes.
+
+3. HOW WE USE YOUR INFORMATION
+We use collected information to:
+• Respond to your inquiries and provide customer support
+• Improve and optimize the Site's functionality and user experience
+• Analyze trends, usage patterns, and visitor behaviour
+• Send occasional updates or promotional information (with your consent)
+• Comply with legal obligations and enforce our Terms of Service
+• Detect and prevent fraudulent, abusive, or unlawful activity
+
+4. COOKIES AND ANALYTICS
+Our Site uses cookies to enhance your experience. These include:
+• Session Cookies: Temporary cookies that help us remember you during your current session
+• Persistent Cookies: Longer-lasting cookies that retain your preferences across visits
+• Analytics Cookies: Used by Google Analytics and similar services to track Site performance and visitor behaviour
+You can control cookie settings through your browser, though disabling cookies may limit Site functionality.
+
+5. THIRD-PARTY SERVICE PROVIDERS
+We may share your information with trusted third parties who assist us in operating our Site, conducting business, or servicing you, including:
+• Hosting providers
+• Analytics platforms
+• Email and communication service providers
+• Payment and form processing services
+These providers are contractually obligated to use your information only as necessary to provide services to us and are bound by confidentiality agreements.
+
+6. DATA RETENTION
+We retain contact form submissions and related personal data for as long as necessary to respond to your inquiry, maintain records, and comply with legal obligations. Typically, we retain this information for up to two years. You may request deletion of your data at any time, subject to legal retention requirements.
+
+7. DATA SECURITY
+We implement industry-standard security measures, including encryption, secure socket layer (SSL) technology, and access controls to protect your personal information. However, no transmission over the internet is completely secure. While we strive to protect your data, we cannot guarantee absolute security.
+
+8. USER RIGHTS
+You have the right to:
+• Access your personal information held by us
+• Correct inaccurate or incomplete data
+• Request deletion of your information (subject to legal obligations)
+• Opt out of promotional communications
+• Withdraw consent for data processing
+To exercise these rights, please contact us using the information provided in section 9.
+
+9. CONTACT FOR PRIVACY REQUESTS
+If you have questions about this Privacy Policy, wish to access, correct, or delete your personal information, or have privacy concerns, please contact us through the inquiry form on our Site. We will respond to legitimate privacy requests within 30 days.
+
+10. POLICY UPDATES
+AndroidAppp may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. We encourage you to review this policy periodically. Continued use of the Site following updates indicates your acceptance of the revised Privacy Policy.</p>
+    </div>
+   </section>
+  </section>
+  <footer data-template-id="site-footer" class="canva-footer bg-[#161618] py-10 text-center" style="background: rgb(22, 22, 24); color: rgb(156, 163, 175);">
+   <div class="site-width">
+    <nav aria-label="Footer navigation">
+     <ul class="flex flex-wrap justify-center gap-x-7 gap-y-3">
+      <li><button data-template-id="footer-home" class="canva-link nav-link" type="button" data-page="home-page" style="color: rgb(156, 163, 175); font-weight: 500; font-style: normal; font-size: 15px;">Home</button></li>
+      <li><button data-template-id="footer-terms" class="canva-link nav-link" type="button" data-page="terms-page" style="color: rgb(156, 163, 175); font-weight: 500; font-style: normal; font-size: 15px;">Terms of Service</button></li>
+      <li><button data-template-id="footer-privacy" class="canva-link nav-link" type="button" data-page="privacy-page" style="color: rgb(156, 163, 175); font-weight: 500; font-style: normal; font-size: 15px;">Privacy Policy</button></li>
+      <li><button data-template-id="footer-about" class="canva-link nav-link" type="button" data-page="about-page" style="color: rgb(156, 163, 175); font-weight: 500; font-style: normal; font-size: 15px;">About Us</button></li>
+     </ul>
+    </nav>
+    <div class="my-6 border-t border-[#303035]"></div>
+    <p data-template-id="copyright" class="canva-text text-sm" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 15px;">Copyright@2026 AndroidAppp. All rights reserved.</p>
+   </div>
+  </footer>
   <script src="/_sdk/afc2d393c2ac926b.editing_sdk.js" integrity="sha512-Ue7lZoRec1IGq7j3H/38aWZalTxanTjFGoCKdWTFUGFJwCO6Pinekpb6vP1nEQ3ZFuEOglmaFKfrRMeLheTxnw=="></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", async () => {
       lucide.createIcons();
+      const menuButton=document.getElementById("mobile-menu-button");
+      const mobileMenu=document.getElementById("mobile-menu");
+      const pages=document.querySelectorAll(".page-view");
+      const details=document.querySelectorAll(".project-detail");
+      const form=document.getElementById("contact-form");
+      const status=document.getElementById("form-status");
+      const submit=document.getElementById("contact-form-submit");
 
-      const menuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const pages = document.querySelectorAll(".page-view");
+      function closeMenu(){mobileMenu.classList.remove("is-open");menuButton.setAttribute("aria-expanded","false")}
+      function showPage(id){pages.forEach(page=>page.classList.toggle("is-active",page.id===id));closeMenu();window.scrollTo({top:0,behavior:"smooth"})}
+      function goToSection(id){showPage("home-page");setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:"smooth",block:"start"}),100)}
+      function openProject(id){details.forEach(detail=>detail.classList.toggle("is-active",detail.id==="detail-"+id));showPage("project-page")}
 
-      function closeMobileMenu() {
-        mobileMenu.classList.remove("is-open");
-        menuButton.setAttribute("aria-expanded", "false");
-      }
-
-      function showPage(pageId) {
-        pages.forEach(function (page) {
-          page.classList.toggle("is-active", page.id === pageId);
-        });
-        closeMobileMenu();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      function goToSection(sectionId) {
-        showPage("home-page");
-        window.setTimeout(function () {
-          const section = document.getElementById(sectionId);
-          if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 100);
-      }
-
-      menuButton.addEventListener("click", function () {
-        const isOpen = mobileMenu.classList.toggle("is-open");
-        menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.addEventListener("click",()=>{const open=mobileMenu.classList.toggle("is-open");menuButton.setAttribute("aria-expanded",String(open))});
+      document.getElementById("brand-home-button").addEventListener("click",()=>showPage("home-page"));
+      document.querySelectorAll("[data-page]").forEach(button=>button.addEventListener("click",()=>showPage(button.dataset.page)));
+      document.querySelectorAll("[data-section]").forEach(button=>button.addEventListener("click",()=>goToSection(button.dataset.section)));
+      document.querySelectorAll(".project-card").forEach(card=>{
+        card.addEventListener("click",event=>{if(!event.target.closest("button"))openProject(card.dataset.project)});
+        card.addEventListener("keydown",event=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();openProject(card.dataset.project)}})
       });
+      document.querySelectorAll("button[data-project]").forEach(button=>button.addEventListener("click",event=>{event.stopPropagation();openProject(button.dataset.project)}));
+      document.getElementById("project-back-button").addEventListener("click",()=>goToSection("portfolio"));
 
-      document.getElementById("brand-home-button").addEventListener("click", function () {
-        showPage("home-page");
-      });
+      const handler={onDataChanged(){}};
+      let ready=false;
+      try{
+        const result=await window.dataSdk.init(handler);
+        ready=result.isOk;
+      }catch(error){ready=false}
 
-      document.querySelectorAll("[data-page]").forEach(function (button) {
-        button.addEventListener("click", function () {
-          showPage(button.dataset.page);
-        });
-      });
-
-      document.querySelectorAll("[data-section]").forEach(function (button) {
-        button.addEventListener("click", function () {
-          goToSection(button.dataset.section);
-        });
+      form.addEventListener("submit",async event=>{
+        event.preventDefault();
+        if(!ready){status.textContent="Unable to send your message right now. Please try again shortly.";status.className="mt-5 min-h-5 text-sm text-red-600";return}
+        const name=document.getElementById("contact-name").value.trim();
+        const email=document.getElementById("contact-email").value.trim();
+        const subject=document.getElementById("contact-subject").value.trim();
+        const message=document.getElementById("contact-message").value.trim();
+        if(!name||!email||!subject||!message)return;
+        submit.disabled=true;status.textContent="Sending your message…";status.className="mt-5 min-h-5 text-sm text-[#626262]";
+        try{
+          const result=await window.dataSdk.create({name,email,subject,message,submitted_at:new Date().toISOString()});
+          if(result.isOk){form.reset();status.textContent="Thank you! Your message has been sent.";status.className="mt-5 min-h-5 text-sm text-green-600"}
+          else{status.textContent="We could not send your message. Please try again.";status.className="mt-5 min-h-5 text-sm text-red-600"}
+        }catch(error){status.textContent="We could not send your message. Please try again.";status.className="mt-5 min-h-5 text-sm text-red-600"}
+        finally{submit.disabled=false}
       });
     });
   </script>
