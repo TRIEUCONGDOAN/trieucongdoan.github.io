@@ -1312,9 +1312,5 @@ videoheroes.tv, 212428, RESELLER, 064bc410192443d8
 voisetech.com, 1066, RESELLER
 xandr.com, 17779, RESELLER
 zmaticoo.com, 5135195, RESELLER
-#Appodeal
-appodeal.com, 22947, DIRECT
-#BidMachine
-bidmachine.io,1,DIRECT
-bidmachine.io,466,DIRECT
+
 
