@@ -1177,6 +1177,22 @@ loopme.com, 20970, RESELLER, 6c8d5f95897a5a3b
 loopme.com, 20968, RESELLER, 6c8d5f95897a5a3b
 indexexchange.com, 216513, RESELLER, 50b1c356f2c5c8fc
 #Unity
+bigo.sg, adidz3dyfp, RESELLER
+bold-win.com, 1189, RESELLER, 71746737d0bab951
+e-planning.net, 79ded3cfca3d3b78, RESELLER, c1ba615865ed87b2
+lijit.com, 606973, RESELLER, fafdf38b16bf6b2b
+loopme.com, 2896, RESELLER, 6c8d5f95897a5a3b
+media.net, 8CAXEGFDP, RESELLER
+pubmatic.com, 168244, RESELLER, 5d62403b186f2ace
+sharethrough.com, SniqCOMC, RESELLER, d53b998a7bd4ecd2
+sharethrough.com, UvcAx8IL, RESELLER, d53b998a7bd4ecd12
+smartclip.net, 15458, RESELLER
+themediagrid.com, B8N9YH, RESELLER, 35d5010d7789b49d
+themediagrid.com, JVHG38, RESELLER, 9fac4a4a87c2a44f
+triplelift.com, 12158, RESELLER, 6c33edb13117fd86
+triplelift.com, 14705-EB, RESELLER
+verve.com, 1008379, RESELLER, 0c8f5958fc2d6270
+xandr.com, 7353, RESELLER
 bid-matrix.com, f2c71a45ea149366, RESELLER
 brightmountainmedia.com, 2686958, RESELLER
 connekt.ai, 5585919044, RESELLER
