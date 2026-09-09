@@ -580,10 +580,10 @@ fivecdm.com, 19990548, DIRECT
 #ironscure
 ironsrc.com, 382716 , DIRECT
 #chatboot 
-chartboost.com, 5867edd9f6cd451264bc26f5, DIRECT
-loopme.com, 15033, DIRECT, 6c8d5f95897a5a3b
+#chartboost.com, 5867edd9f6cd451264bc26f5, DIRECT
+#loopme.com, 15033, DIRECT, 6c8d5f95897a5a3b
 #inmobi 
-inmobi.com, ef6aeedd02ed47729aa1b8fe1ce7e677, DIRECT, 83e75a7ae333ca9d
+#inmobi.com, ef6aeedd02ed47729aa1b8fe1ce7e677, DIRECT, 83e75a7ae333ca9d
 
 #mintegral
 mintegral.com, 42064, DIRECT, 0aeed750c80d6423
