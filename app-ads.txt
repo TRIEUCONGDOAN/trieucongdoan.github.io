@@ -1739,5 +1739,6 @@ verve.com, 1008379, RESELLER, 0c8f5958fc2d6270
 openx.com, 561446248, RESELLER, 6a698e2ec38604c6
 Media.net, 8CU5L226O, RESELLER
 video.unrulymedia.com, 905340553, RESELLER
+bigo.sg,j3pso6gwtd,DIRECT
 
 
