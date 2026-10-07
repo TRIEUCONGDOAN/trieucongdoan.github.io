@@ -1863,4 +1863,6 @@ taboola.com,1283589,DIRECT,c228e6794e811952
 taboola.com,1283590,DIRECT,c228e6794e811952
 bidscube.com, 4000355, DIRECT, 6ecc87a1e0269657
 improvedigital.com, 2480, RESELLER
+#vungle
+vungle.com, 6ac589bfdc021dbec1ece2f7, DIRECT, c107d686becd2d77
 
