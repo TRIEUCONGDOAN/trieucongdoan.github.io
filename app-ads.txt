@@ -55,6 +55,7 @@ facebook.com, 371856610083835, RESELLER, c3e20eee3f780d68
 facebook.com, 762545544146131, RESELLER, c3e20eee3f780d68
 
 #yandex 
+spinx.biz, 1373698900, RESELLER
 e-planning.net, 2f3a04630ba9ba3f, RESELLER, c1ba615865ed87b2
 yango-ads.com, 104791735, DIRECT
 pubmatic.com, 165157, RESELLER, 5d62403b186f2ace
